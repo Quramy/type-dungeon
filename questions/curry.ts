@@ -24,5 +24,3 @@ bound(100, 100) // should throw error
 
 const value = bound(100); // should NOT throw error
 let v: number = value; // should NOT throw error
-
-export = 1;

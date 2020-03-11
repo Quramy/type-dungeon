@@ -2,18 +2,20 @@
   "name": "type-dungeon",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
+    "clean": "rimraf dist",
+    "convert": "ts-node scripts/convert-questions.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "keywords": ["typescript"],
+  "author": "yosuke.kurami@gmail.com",
+  "license": "MIT",
   "devDependencies": {
     "@microsoft/tsdoc": "^0.12.18",
     "@types/glob": "^7.1.1",
     "@types/node": "^13.9.0",
     "glob": "^7.1.6",
+    "rimraf": "^3.0.2",
     "ts-node": "^8.6.2",
     "typescript": "^3.8.3"
   }
