@@ -43,6 +43,17 @@ function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string)
     replacements: [],
   };
   ts.forEachChild(src, node => {
+    if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
+      if (node.moduleSpecifier.text === "type-dungeon") {
+        descriptor.replacements.push({
+          newText: "",
+          span: {
+            start: node.getFullStart(),
+            length: node.getFullWidth(),
+          },
+        });
+      }
+    }
     const commentRanges = ts.getLeadingCommentRanges(fileContent, node.getFullStart());
     if (!commentRanges) return;
     commentRanges.filter(c => c.kind === ts.SyntaxKind.MultiLineCommentTrivia).forEach(range => {
@@ -91,7 +102,7 @@ function getQuersionText({ originalContent, replacements }: QuestionDescriptor) 
     originalContent = originalContent.slice(0, start) + newText + originalContent.slice(start + length);
   }
   return {
-    fullText: originalContent,
+    fullText: originalContent.trim(),
   };
 }
 
