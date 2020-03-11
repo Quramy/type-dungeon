@@ -4,7 +4,7 @@ import "type-dungeon";
  *
  * @typeQuestion
  *
- * Fill the function type to much the following expected condition 
+ * Complete the function type to match the following expected type condition.
  *
  * @difficulty medium
  *
@@ -24,5 +24,4 @@ const bound = curry(add)(1);
 bound(); // should throw error
 bound(100, 100); // should throw error
 
-const value = bound(100); // should NOT throw error
-let v: number = value; // should NOT throw error
+const value: number = bound(100); // should NOT throw error
