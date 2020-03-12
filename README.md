@@ -22,7 +22,7 @@ TypeScript code exercise.
 
 Difficulty: `EASY` .
 
-Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEFEBMEsBdVgCwKagE7QOaPoghgHaSgDO0kqsA9qALZ6wDGiCKoAZlQDZdUDu0AplDIAHgAdkjWMmKwAnpNCMqRONFUkAdACgFSgMqwM0gDwAVAHygAvKACuBANYF+BANw6dICBKkzIL31UAypaZAB5ACMAK39zRVQ7AG8dUFACPHCAfgAuUmNBTE90vExkPIz7WijkNE8AX08dCkYuPDRUFQISeF6TWGiY-KMB01DwofjEy2bu3oys5Hz+otsCgaGtTPD3UB9gqnZF8NJEKnsuYld4WociZHZBWX2qnh15+DLlqpq69dW0i23z2B0SR1A3zOFyuGSot1QjgoTwILzABEuXB0QA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEFEBMEsBdVgCwKagE7QOaPoghgHaSgDO0kqsA9qALZ6wDGiCKoAZlQDZdUDu0AplDIAHgAdkjWMmKwAnpNCMqRONFUkAdACgFSgMqwM0gDwAVAHygAvKACuBANYF+BANw6dICBKkzIL31UAypaZAB5ACMAK39zRVQ7AG8dUFACPHCAfgAuUmNBTE90vExkPIz7WijkNE8AX08dCkYuPDRUFQISeF6TWGiY-KMB01DwofjEy2bu3ocSOoA5LOR8-qLbAoGhrUzw91AfYKp2DLXSRCp7LmJXeFqHImR2QVljqp4defgy9aqNTq2020j2-yOJ0SZ1A-yuNzuGSoj1QjgobwIHzABFuXB0QA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Edit the right hand side to match the following expected type conditions.
@@ -37,11 +37,11 @@ type SomeObjectType = {
 
 declare const strictObj: Strict<SomeObjectType>;
 
-const name: string = strictObj.name; // typeof name should not be undefined / null
+const userName: string = strictObj.name; // typeof name should not be undefined / null
 const age: number = strictObj.age; // typeof age should not be undefined / null
 ```
 
-<a href="https://www.typescriptlang.org/v2/play?#code/C4TwDgpgBAysBOBLAxsAPAFQHxQLxQG8oBtABSkQDsoBrCEAewDMoMBdAWgH4AuVstlAC+AbgBQYgPSSoAUQAekVBAAmE0JFgMAthADyAIwBWEVBnDR8BMVCiUAhrt5QAzgioBzcbfseIzygBXbQMIeHFRCRVTABt7eGhkBko3V3dUQyM+OCRUNBgdfWNTYHNILHExJJTgO0cIPjckSg88NNzgTIA6B10RKGkoDQhmOt1XAAsGQJiVOwZa0KhAymimKlUBuxmYquTU3wbtkLC2ppRO4y7D-sHh0cPJ6dn5xegVtY25mSCY3aA" target="_blank">
+<a href="https://www.typescriptlang.org/v2/play?#code/C4TwDgpgBAysBOBLAxsAPAFQHxQLxQG8oBtABSkQDsoBrCEAewDMoMBdAWgH4AuVstlAC+AbgBQYgPSSoAUQAekVBAAmE0JFgMAthADyAIwBWEVBnDR8BMVCiUAhrt5QAzgioBzcbfseIzygBXbQMIeHFRCRVTABt7eGhkBko3V3dUQyM+OCRUNBgdfWNTYHNILHExJJTgKECXMIA5Rwg+NyRKDzw03OBMgDoHXREoaSgNCGY7FtcACwZAmJU7BlrQuspopipVUbtFmKrk1N9W-ZCw7vaUPuN+05GxianTuYWllbXoQM2IbcpdjIgjFDkA" target="_blank">
   Check out the answer.
 </a>
   

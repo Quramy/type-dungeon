@@ -26,5 +26,5 @@ type SomeObjectType = {
 
 declare const strictObj: Strict<SomeObjectType>;
 
-const name: string = strictObj.name; // typeof name should not be undefined / null
+const userName: string = strictObj.name; // typeof name should not be undefined / null
 const age: number = strictObj.age; // typeof age should not be undefined / null
