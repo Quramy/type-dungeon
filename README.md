@@ -94,7 +94,7 @@ type S1 = Awaited<P1>; // should be string;
 type S2 = Awaited<P2>; // shuuld be string too;
 ```
 
-<a href="https://www.typescriptlang.org/v2/play?#code/C4TwDgpgBAgg7gQwJbAgEwDwBUB8UC8UAFFlBAB6oB2aAzlAAoBOA9gLZK0QAySA1hAxIqAMwhMoADTwB+KAG8oABgBcsRCnQZpUAL5Q1i1VFK6AlAG0lAXQDcAKHuhIjAIwFGrDlwy1gTYQBzHAdnaAYAJg9mdk5BGO9BPwCqYJDHAHoMsnJIAGNUNCdwaABld0J4ZEKMBlcQqCyoWgALFgBXABs0KAAjaGSg0JKoUqjKjRrIhqbW9q6e-ub-IKhgFhYHIA" target="_blank">
+<a href="https://www.typescriptlang.org/v2/play?#code/C4TwDgpgBAgg7gQwJbAgEwDwBUB8UC8UAFFlBAB6oB2aAzlAAoBOA9gLZK0QAySA1hAxIqAMwhMoADRwAoKFAD8UAN5QADAC5YiFOgzSoAXzlQtqzVFKGAlAG01AXQDcMmaEiMAjAUasOXDFpgJmEAcxwXd2gGACYfZnZOQQT-QSCQqnCI1wB6HLJySABjVDQ3cGgAZW9CeGRSjAZPCKg8qFoACxYAVwAbNCgAI2h0sMiKqEq42p0G2Ja2zu6+geH24LCoYBYWFyA" target="_blank">
   Check out the answer.
 </a>
   
@@ -118,7 +118,7 @@ bound(100, 100); // should throw error
 const value: number = bound(100); // should NOT throw error
 ```
 
-<a href="https://www.typescriptlang.org/v2/play?#code/CYUwxgNghgTiAEAzArgOzAFwJYHtXzGRhgE8AeAFXhAA8MRVgBneAMTU11QD4AKAKHhJUALngUANPwCUYqrXqMWvKGKypEIGPACCE+ADojcJhjUat8AELT4AXm7x1m7QCV4AfngqxO2w+8jA1gAcyYxG3tHdzFUEAA3LQBufn4AejT4AFEaAAdwemBUsDxTeChgYHtvVXhUZABbACMtfSbYxpaYf0coeABqeCaUktQyppw0KrsCIlIVSuleAEZpFImp3jX4DPgmAAtJiCqMfZgcAHdqYhwYfg3GFYAGJ-1ll+3dg6OTs8vr853fijMrxKAQZAgDrNSwzB7AZ5PT6Zb7IY7wAByAHkqKdzlctID+EA" target="_blank">
+<a href="https://www.typescriptlang.org/v2/play?#code/CYUwxgNghgTiAEAzArgOzAFwJYHtXzGRhgE8AeAFXhAA8MRVgBneAMTU11QD4AKAKHhJUALngUANPwCUYqrXqMWvKGKypEIGPACCE+ADojcJhjUat8AELT4AXm7x1m7QCVB8APzwVYnbYcfIwNYAHMmMRt7R3chMVQQADctAG5+fgB6DPgAURoAB3B6YHSwPFN4KGBgex9VeFRkAFsAIy19FvjmtpgAxyh4AGp4FrSy1AqWnDQauwIiUhVq6V4ARmk0qZneDfgs+CYAC2mIGoxDmBwAd2piHBh+LcY1gAYX-VW33f2jk7OL663S4PfjjCqJKAQZAgLqtSxzJ7AV4vb7ZX7IU7wAByAHkqOdLjctMD+EA" target="_blank">
   Check out the answer.
 </a>
   
@@ -126,7 +126,7 @@ const value: number = bound(100); // should NOT throw error
 
 Difficulty: `HARD` .
 
-Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEGEHsFsAcBsCmAXRpkAs0AMBKBDAOwBMZt0BPWRAOgChkq0CSZQBeUAV0IGtDIAd0IBuOnWKIAxvHwAnNFMiEAzslByipaAC5QLbWLpLV6-B1ABvUADd88Loj0BGUAF9Q+FaBNqxv9QAjC2s7BydQACZ3T28A-2U1HxDbe0c9AGYYrx9E5CMQUABRAA9qKVRiHTpCgBUsUGxNVmhyBWQuOUJKalAVDEgueGJQQLQvFQBLAHNCfECkdAxJ70ZeogFkfGRJ5XoA1PC9ULSI1w8AHytD9KiYq5Oj0CyPTmbtAAp8ABpR36kAJRiIA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEGEHsFsAcBsCmAXRpkAs0AMBKBDAOwBMZt0BPWRAOgChkq0CSZQBeUAV0IGtDIAd0IBuOnWKIAxvHwAnNFMiEAzslByipaAC5QLbWLpLV6-B1ABvUADd88Loj0BGUAF9Q+FaBNqxv9QAjC2s7BydQACZ3T28A-2U1HxDbe0c9AGYYrx9E5CMQUABRAA9qKVRiHTpCgBUsUGxNVmhyBWQuOUJKalAVDEgueGJQQLQvFQBLAHNCfECkdAxJ70ZeogFkfGRJ5XpjPNTwgEEAIQtm7QAKfAAaUYBKBNMjxzPwC60YG-vA+6knuIAqASnprAp8KRCPAKK8Iq4PAAfKwaRCQ5QwuF6aIeThhN6nZ5JCjVUCgZHgtFQzH4+HuOhkimo9HQ2G07H0xkoiHUtlpCJZXFw95iIA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Complete the `Random` type.
@@ -140,10 +140,18 @@ const c = { value: 3 } as const;
 
 // Expected:
 // The `random` return type should be assignable this type annotation.
-const value: { value: 1 } | { value: 2 } | { value: 3 } = random(a, b, c);
+
+const valueAB = random(a, b);
+const valueABC = random(a, b, c);
+
+const x: { readonly value: 1 } | { readonly value: 2 } = valueAB;
+const y:
+  | { readonly value: 1 }
+  | { readonly value: 2 }
+  | { readonly value: 3 } = valueABC;
 ```
 
-<a href="https://www.typescriptlang.org/v2/play?#code/C4TwDgpgBAYgrgOwMYB4CCUC8UCGCQA0UASlrvgHxkAUOATgOYDOAXFGgJRZXEDcAUP1CQoAVQQBLAPYIUANSKioEAB7AICACZNyIANoBdKtgDe-KFAAMbOQIsBGNtWoA6NwDc2orpip4QXKrqWjrUABYQOJpsEggAZhB0UAASkZpEbi7AOBIANjHxiVAAKjm5Pn74UAD8YpIy8lAAPilpRKV5VGwIEO6JAgC+eqJ6AOS5GgzAYaMGymoa2lY1y2z2BgJC4NDEeJpSALZkKMWK88FL-oYU1HESdEzAbKdQmXQQBwh4T2IVddKyF6iCibTQQJC5ejQJAyR5QOh7Q5sXZaQ6bGEIOE4MgmKDuHC5OAQNZQAa4HQYx4CSnAKAAIxxeIJRLYACZSeSoDTqbDaUhGfjCcSoABmDk4Cm8zYAemlUAAoipIEh1NF+LKShEoAADBGog7a+EQYBwOgIKDCaBMMJSOC5TT06ASpgSBhfOkTC1hCQ6S3kBBSbLAAEufg0plCti4wUsqD2DktaPM4XssmJiOxsVk7B6-YHWhEOlEJAcARAA" target="_blank">
+<a href="https://www.typescriptlang.org/v2/play?#code/C4TwDgpgBAYgrgOwMYB4CCUC8UCGCQA0UASlrvgHxkAUOATgOYDOAXFGgJRZXEDcAUP1CQoAVQQBLAPYIUANSKioEAB7AICACZNyIANoBdKtgDe-KFAAMbOQIsBGNtWoA6NwDc2orpip4QXKrqWjrUABYQOJpsEggAZhB0UAASkZpEbi7AOBIANjHxiVAAKjm5Pn745hZQAPxikjLyUAA+KWlEpXkU1RZsCBDuiQIAvnqiegDkuRoMwGGTBspqGtpWdets9gYCQuDQxHiaUgC2ZCjFisvBa-6GFNRxEnRMwGyXUJl0ECcIeG9iCoNaSyD6iCi7TQQJC5ejQJAyV5QOhHU5sQ5aU67BEIJE4MgmKDuHC5OAQLZQEa4HQ414CWnAKAAIwJRJJZLYACZKdSoAz6YjGUhWcTSeSoABmHk4GmC3YAenlUAAoipIEh1NF+IqShEoAADFGYk765EQYBwOgIKDCaBMMJSOC5TTM6AypgSBh-JkzG1hCQ6W3kBBSbLAEEuQQMtlitAAITIRuOJ1oRCZHAFuMZorJ8YAwonUSmcGmiEgM1HBVAVGxCd8ojJciAYxyoPYeW062lG82c+LuVTsH345mkSAWNVO2aGwgmy3xe2RpOoF2Z3O+1zKcvV8dZ732eKpYP5-mBEA" target="_blank">
   Check out the answer.
 </a>
   
