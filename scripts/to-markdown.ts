@@ -22,18 +22,14 @@ const createSection = (data: Output) => {
   return `
 ### ${data.name}
 
-<a href="${toPlaygroundLink(qBuf)}" target="blank">
-  Play this via TypeScript playground !
+Play this with <a href="${toPlaygroundLink(qBuf)}" target="_blank">TypeScript playground</a> !
+
+\`\`\`typescript
+${qBuf}\`\`\`
+
+<a href="${toPlaygroundLink(aBuf)}" target="_blank">
+  Check out the answer.
 </a>
-
-\`\`\`
-${qBuf}
-\`\`\`
-
-<a href="${toPlaygroundLink(aBuf)}" target="blank">
-  Example answer. 
-</a>
-
   `;
 };
 
