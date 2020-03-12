@@ -13,9 +13,9 @@ New questions as PR are welcome!
 
 Create a new TypeScript file under `questions` directory and edit it. This repository has a code generator from one TypeScript file to both answer code and question code to display to user.
 
-- You should the answer of the question as plain TypeScript code.
-- You should the description of the question as TSDoc comment.
-- You can hide or replace the correct statement with TSDoc directives.
+- You should write the answer of the question as plain TypeScript code.
+- You should write the description of the question as TSDoc comment.
+- You can hide or replace the correct statements with TSDoc directives.
 
 For example:
 
@@ -116,6 +116,6 @@ type X = string;
 
 ## Why `import "type-dugenon"` ?
 Each question code should not affect to each other.
-But because of TypeScript module convention, `import` or `export` is needed to be treated the file as a module, I put `import "type-dungeon` at the top of each question code.
+But because of TypeScript module convention, `import` or `export` is needed to be treated the file as a module, I put `import "type-dungeon"` at the top of each question code.
 
 This import declaration will be removed via question / answer code generating procedure :sunglasses:
