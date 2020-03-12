@@ -7,6 +7,7 @@ TypeScript code exercise.
 <!-- toc -->
 
 - [Exercise](#exercise)
+  - [json-type](#json-type)
   - [to-strict](#to-strict)
   - [awaited](#awaited)
   - [curry](#curry)
@@ -18,6 +19,36 @@ TypeScript code exercise.
 
 ## Exercise
 
+### json-type
+
+Difficulty: `EASY` .
+
+Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEGEHsFsAcBsCmAXRpkAs0AMBSBlAeQDkAZASwGtFt0BPWRAOlAEllQAnRWbgZ0QA7ZH3qNQkAGagAbgEN4AV0Si8RYk1hzOAgBQBKWt2SLOgvkwBQyBmgIkK1UAF5QiwZUGQA7oIDclpYAxpDmHDIAjABcoPZkVGiuAN4AvgEhYbIATDFxjomgANoAuumhfOEAzLnq+S6ggorw8GWZMgAsNQ4J9UmWoKCS8HIA5jGSCgIANP0NctCIMQDkgvOISzMDjdAxEQAMe5ug2pwxhUmgGJAji6BLVzdLoCnFR5CwyOShAAra8zGNZozNKBECgAAqWEGkGaPnIghGoAASgAJfCiIJyQQNSAcABGaAEnHICnIAC9EAATdCQWLqYLlcIAVi68ScrgMLgAfKAIn5QGC+FcmtSCaBEJxOJBOAy2gA2Vl1ZKDQQxTnOHkRZ78wXC+CitASqUyoA" target="_blank">TypeScript playground</a> !
+
+```typescript
+// Complete the `JSONLike` type. It represents type of values `JSON.parse()` returns.
+type JSONLike = unknown;
+
+const v1: JSONLike = {};
+const v2: JSONLike = [];
+const v3: JSONLike = null;
+const v4: JSONLike = {
+  flag: false,
+  name: 'name',
+  num: 100,
+  arr: [{ hoge: 'hoge' }],
+  optionParam: null,
+};
+
+// The following RHSs can not be serialized to JSON
+const v5: JSONLike = () => 1; // should be error
+const v6: JSONLike = { fn: () => 1 }; // should be error
+```
+
+<a href="https://www.typescriptlang.org/v2/play?#code/C4TwDgpgBACgTgSwLYOAgbtAvFAdgVwBtCoAfKAIwHsrCIBDXMqAZ2EVwHNmCkKI4AbgBQw0JCgApAMoB5AHIAZBAGtswqMwDeGzXoDaakAC5W7BFwC6pmQuVqReqAF9d5W0tUR9lt7EQoaJgiwgDGVLhsUOgAjDZynmpQOFrOIuGRwNEATPF2XslQPukRUegAzHmJ2HhEhCWZ0QAsVfY1OpoAZoT0nKad9IQsEAA0urj0SBCmAOQTUzNjmrymMQAMa0tQ9HBwpvpaUAAWVJzTUDMnZzMulltUYGgRMDuTpgTEY2miAPQ-UAAVI7QTq0QhUADuFm4ACUABLSFhQUKMPBULL8VgCBCDBAALwgABMoMAqFIEmFSll0ABWVoFHAACgAlMkAHxQGKCKB-VgnIjEzECOBUOCUxroABs9KSKSgnVwphZ7M5Lm5vJY-MIgugwtFwiAA" target="_blank">
+  Check out the answer.
+</a>
+  
 ### to-strict
 
 Difficulty: `EASY` .
