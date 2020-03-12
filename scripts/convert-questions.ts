@@ -4,7 +4,7 @@ import glob from "glob";
 import { TSDocParser, TextRange } from "@microsoft/tsdoc";
 import { DocNode, DocExcerpt, DocFencedCode, DocParagraph } from '@microsoft/tsdoc';
 import { createParser } from "./helpers/custom-tsdoc-parser";
-import { Output } from "./types";
+import { Output, Dificulties, difficultyMap } from "./types";
 
 export class Formatter {
 
@@ -129,12 +129,6 @@ function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string)
   if (qd.description) return [qd, ad];
 }
 
-const difficultyMap: Record<string, number> = {
-  "EASY": 5,
-  "MEDIUM": 10,
-  "HARD": 15,
-};
-
 function applyReplacements({ originalContent, replacements }: QuestionDescriptor) {
   const cloned = replacements.slice().sort((a, b) => b.span.start - a.span.start);
   for (const { newText, span: { start, length } } of cloned) {
@@ -164,11 +158,11 @@ function main() {
     const aOut = applyReplacements(ad);
     ts.sys.writeFile(__dirname + "/../dist/questions/" + qd.fileName, qOut.fullText);
     ts.sys.writeFile(__dirname + "/../dist/answers/" + ad.fileName, aOut.fullText);
-    const difficultyStr = qd.difficultyStr || "MEDIUM";
+    const difficultyStr = (qd.difficultyStr! in difficultyMap ? qd.difficultyStr : "MEDIUM") as Dificulties;
     const outJsonRecord: Output = {
       name: path.basename(fileName).replace(/\.tsx?$/, ""),
       difficultyStr,
-      difficulty: difficultyMap[difficultyStr] || difficultyMap.MEDIUM,
+      difficulty: difficultyMap[difficultyStr],
       questionFileName: `dist/questions/${fileName}`,
       answerFileName: `dist/answers/${fileName}`,
     };

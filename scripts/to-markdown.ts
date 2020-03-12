@@ -29,7 +29,7 @@ const createSection = (data: Output) => {
   return `
 ### ${data.name}
 
-Difficulty: \`${data.difficultyStr}\` .
+Difficulty: ${[...new Array(~~(data.difficulty / 5)).keys()].map(() => ":space_invader:").join("")}
 
 Play this with <a href="${toPlaygroundLink(qBuf)}" target="_blank">TypeScript playground</a> !
 
