@@ -1,0 +1,34 @@
+name: Push README.md
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [12.x]
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - run: yarn --frozen-lockfile
+    - run: yarn build
+      env:
+        CI: true
+    - run: cp dist/README.md ./
+    - name: Commit and push
+      run: |
+        git config --global user.email "workflow@example.com"
+        git config --global user.name "workflow user"
+        git commit -m 'update README.md' && git push ${REPO} HEAD:${{github.event.push.head.ref}} || true
+      env:
+        REPO: https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
+
