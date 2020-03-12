@@ -75,6 +75,16 @@ function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string)
         toBeRemoved = true;
         replacementComment = qd.description.split("\n").map(line => `// ${line}`).join("\n");
       }
+      if (docComment.modifierTagSet.hasTagName("@remove")) {
+        toBeRemoved = true;
+        qd.replacements.push({
+          newText: "",
+          span: {
+            start: node.getStart(),
+            length: node.getWidth(),
+          },
+        });
+      }
       docComment.customBlocks.forEach(block => {
         if (block.blockTag.tagName === "@replaceTo") {
           toBeRemoved = true;
@@ -99,15 +109,20 @@ function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string)
         }
       });
       if (toBeRemoved) {
-        const r = {
+        qd.replacements.push({
           newText: replacementComment,
           span: {
             start: range.pos,
             length: range.end - range.pos,
           },
-        };
-        qd.replacements.push(r);
-        ad.replacements.push(r);
+        });
+        ad.replacements.push({
+          newText: "",
+          span: {
+            start: range.pos,
+            length: range.end - range.pos,
+          },
+        });
       }
     });
   });
