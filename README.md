@@ -11,6 +11,7 @@ TypeScript code exercise.
   - [awaited](#awaited)
   - [curry](#curry)
   - [randomize](#randomize)
+- [How to create new exercise](#how-to-create-new-exercise)
 - [LICENSE](#license)
 
 <!-- tocstop -->
@@ -115,5 +116,9 @@ const value: { value: 1 } | { value: 2 } | { value: 3 } = random(a, b, c);
   Check out the answer.
 </a>
   
+## How to create new exercise
+Read [CONTRIBUTING.md](./CONTRIBUTING.md).
+
 ## LICENSE
+
 MIT

@@ -44,6 +44,9 @@ ${qBuf}\`\`\`
 
 const createFooter = () => {
   return `
+## How to create new exercise
+Read [CONTRIBUTING.md](./CONTRIBUTING.md).
+
 ## LICENSE
 MIT
   `;
