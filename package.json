@@ -8,7 +8,7 @@
     "markdown": "ts-node -T scripts/to-markdown.ts",
     "postmarkdown": "prettier --write \"dist/*.md\"",
     "build": "yarn convert && yarn markdown",
-    "update": "yarn build && cp dist/README.md ./"
+    "updateReadme": "yarn build && cp dist/README.md ./"
   },
   "keywords": [
     "typescript"

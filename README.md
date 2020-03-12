@@ -2,8 +2,24 @@
 
 # Type Dungeon
 
+TypeScript code exercise.
+
+<!-- toc -->
+
+- [Exercise](#exercise)
+  - [to-strict](#to-strict)
+  - [awaited](#awaited)
+  - [curry](#curry)
+  - [randomize](#randomize)
+- [LICENSE](#license)
+
+<!-- tocstop -->
+
+## Exercise
 
 ### to-strict
+
+Difficulty: `EASY` .
 
 Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEFEBMEsBdVgCwKagE7QOaPoghgHaSgDO0kqsA9qALZ6wDGiCKoAZlQDZdUDu0AplDIAHgAdkjWMmKwAnpNCMqRONFUkAdACgFSgMqwM0gDwAVAHygAvKACuBANYF+BANw6dICBKkzIL31UAypaZAB5ACMAK39zRVQ7AG8dUFACPHCAfgAuUmNBTE90vExkPIz7WijkNE8AX08dCkYuPDRUFQISeF6TWGiY-KMB01DwofjEy2bu3oys5Hz+otsCgaGtTPD3UB9gqnZF8NJEKnsuYld4WociZHZBWX2qnh15+DLlqpq69dW0i23z2B0SR1A3zOFyuGSot1QjgoTwILzABEuXB0QA" target="_blank">TypeScript playground</a> !
 
@@ -30,6 +46,8 @@ const age: number = strictObj.age; // typeof age should not be undefined / null
   
 ### awaited
 
+Difficulty: `MEDIUM` .
+
 Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEFEBMEsBdVgCwKagE7QOaPoghgHaSgDO0kqsA9qALZ6wDGiCKoAZlQDZdUDu0AplDIAHgAdkjWMmKwAnpNCMqRONFUkAdACgFSgIJ88cWQB4AKgD5QAXlCF5Abh17FqAAoBGO6A9oqWmgSZDMSWAwhKxd9TwAmX39A4NCkoJCwiMFMK2jXEBEJKRlINyUAZR97IxMSs29o0AKSRCoAVy5iACNUcMjMGPdQcoTq41NIerjG5sQ2ju7erKEEKioXIA" target="_blank">TypeScript playground</a> !
 
 ```typescript
@@ -49,6 +67,8 @@ type S2 = Awaited<P2>; // shuuld be string too;
 </a>
   
 ### curry
+
+Difficulty: `MEDIUM` .
 
 Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEGEHsFsAcBsCmAXRpkAs0DMCuA7AY2QEtJ90BPWNZSUaAQ2UI3S1G0nnkgHcS+AOahEADxrFEAEyo1QhctJKlyAOgBQ0xIXiMATjgLEyFQrn37KACmz4AXKABix1fgCUjxvkoBuDRogoACiEjqo0gGK+ADOyKCM0rIAvKDWjI74uNAARoj6ADSgOZnZefruoMkAfAmgANTF-tFxxZAEKQoWVulJ7tYAjO7+Oe340tbDoEExGO3wspj6-KKWkPoaox2DAAw7RQN7UzNzuAvsy3yryxsaLfEAbozwuIiluflVbduHO8dgs3msgAcgB5AAqFxW+RuGiAA" target="_blank">TypeScript playground</a> !
 
@@ -71,6 +91,8 @@ const value: number = bound(100); // should NOT throw error
 </a>
   
 ### randomize
+
+Difficulty: `HARD` .
 
 Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEGEHsFsAcBsCmAXRpkAs0AMBKBDAOwBMZt0BPWRAOgChkq0CSZQBeUAV0IGtDIAd0IBuOnWKIAxvHwAnNFMiEAzslByipaAC5QLbWLpLV6-B1ABvUADd88Loj0BGUAF9Q+FaBNqxv9QAjC2s7BydQACZ3T28A-2U1HxDbe0c9AGYYrx9E5CMQUABRAA9qKVRiHTpCgBUsUGxNVmhyBWQuOUJKalAVDEgueGJQQLQvFQBLAHNCfECkdAxJ70ZeogFkfGRJ5XoA1PC9ULSI1w8AHytD9KiYq5Oj0CyPTmbtAAp8ABpR36kAJRiIA" target="_blank">TypeScript playground</a> !
 
