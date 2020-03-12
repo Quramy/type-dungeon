@@ -1,8 +1,10 @@
+import path from "path";
 import ts from "typescript";
 import glob from "glob";
 import { TSDocParser, TextRange } from "@microsoft/tsdoc";
-import { DocNode, DocExcerpt, DocFencedCode } from '@microsoft/tsdoc';
+import { DocNode, DocExcerpt, DocFencedCode, DocParagraph } from '@microsoft/tsdoc';
 import { createParser } from "./helpers/custom-tsdoc-parser";
+import { Output } from "./types";
 
 export class Formatter {
 
@@ -31,13 +33,19 @@ export class Formatter {
 type QuestionDescriptor = {
   fileName: string;
   description?: string;
+  difficultyStr?: string;
   originalContent: string;
   replacements: ts.TextChange[];
 };
 
 function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string) {
   const src = ts.createSourceFile(fileName, fileContent, ts.ScriptTarget.Latest, true, fileName.endsWith("tsx") ? ts.ScriptKind.TSX : ts.ScriptKind.TS);
-  const descriptor: QuestionDescriptor = {
+  const qd: QuestionDescriptor = {
+    fileName,
+    originalContent: fileContent,
+    replacements: [],
+  };
+  const ad: QuestionDescriptor = {
     fileName,
     originalContent: fileContent,
     replacements: [],
@@ -45,13 +53,15 @@ function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string)
   ts.forEachChild(src, node => {
     if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
       if (node.moduleSpecifier.text === "type-dungeon") {
-        descriptor.replacements.push({
+        const r = {
           newText: "",
           span: {
             start: node.getFullStart(),
             length: node.getFullWidth(),
           },
-        });
+        };
+        qd.replacements.push(r);
+        ad.replacements.push(r);
       }
     }
     const commentRanges = ts.getLeadingCommentRanges(fileContent, node.getFullStart());
@@ -61,16 +71,16 @@ function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string)
       let toBeRemoved = false;
       let replacementComment = "";
       if (docComment.modifierTagSet.hasTagName("@typeQuestion")) {
-        descriptor.description = Formatter.renderDocNode(docComment.summarySection).trim();
+        qd.description = Formatter.renderDocNode(docComment.summarySection).trim();
         toBeRemoved = true;
-        replacementComment = descriptor.description.split('\n').map(l => '// ' + l).join('\n');
+        replacementComment = qd.description.split("\n").map(line => `// ${line}`).join("\n");
       }
       docComment.customBlocks.forEach(block => {
         if (block.blockTag.tagName === "@replaceTo") {
           toBeRemoved = true;
           for (let child of block.content.getChildNodes()) {
             if (child instanceof DocFencedCode) {
-              descriptor.replacements.push({
+              qd.replacements.push({
                 newText: child.code,
                 span: {
                   start: node.getStart(),
@@ -80,25 +90,39 @@ function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string)
               break;
             }
           }
+        } else if (block.blockTag.tagName === "@difficulty") {
+          const firstNode = block.content.getChildNodes()[0];
+          if (firstNode instanceof DocParagraph) {
+            const dstr = Formatter.renderDocNode(firstNode).trim().toUpperCase();
+            qd.difficultyStr = dstr;
+          }
         }
       });
       if (toBeRemoved) {
-        descriptor.replacements.push({
+        const r = {
           newText: replacementComment,
           span: {
             start: range.pos,
             length: range.end - range.pos,
           },
-        });
+        };
+        qd.replacements.push(r);
+        ad.replacements.push(r);
       }
     });
   });
-  descriptor.replacements.sort((a, b) => b.span.start - a.span.start);
-  if (descriptor.description) return descriptor;
+  if (qd.description) return [qd, ad];
 }
 
-function getQuersionText({ originalContent, replacements }: QuestionDescriptor) {
-  for (const { newText, span: { start, length } } of replacements) {
+const difficultyMap: Record<string, number> = {
+  "EASY": 5,
+  "MEDIUM": 10,
+  "HARD": 15,
+};
+
+function applyReplacements({ originalContent, replacements }: QuestionDescriptor) {
+  const cloned = replacements.slice().sort((a, b) => b.span.start - a.span.start);
+  for (const { newText, span: { start, length } } of cloned) {
     originalContent = originalContent.slice(0, start) + newText + originalContent.slice(start + length);
   }
   return {
@@ -114,13 +138,26 @@ function main() {
     cwd: __dirname + "/../questions",
   });
 
+  const outputs: Output[] = [];
+
   files.forEach(fileName => {
     const buf = ts.sys.readFile(ts.sys.resolvePath(__dirname + "/../questions/" + fileName))!;
     const ret = parseTsFile(parser, fileName, buf);
     if (!ret) return;
-    const out = getQuersionText(ret);
-    ts.sys.writeFile(__dirname + "/../dist/questions/" + ret.fileName, out.fullText);
+    const [qd, ad] = ret;
+    const qOut = applyReplacements(qd);
+    const aOut = applyReplacements(ad);
+    ts.sys.writeFile(__dirname + "/../dist/questions/" + qd.fileName, qOut.fullText);
+    ts.sys.writeFile(__dirname + "/../dist/answers/" + ad.fileName, aOut.fullText);
+    const outJsonRecord: Output = {
+      name: path.basename(fileName).replace(/\.tsx?$/, ""),
+      difficulty: difficultyMap[qd.difficultyStr || "MEDIUM"] || difficultyMap.MEDIUM,
+      questionFileName: `dist/questions/${fileName}`,
+      answerFileName: `dist/answers/${fileName}`,
+    };
+    outputs.push(outJsonRecord);
   });
+  ts.sys.writeFile(__dirname + "/../dist/metadata.json", JSON.stringify(outputs, null, 2));
 }
 
 main();
