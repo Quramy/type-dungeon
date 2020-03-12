@@ -11,6 +11,7 @@ TypeScript code exercise.
   - [to-strict](#to-strict)
   - [awaited](#awaited)
   - [curry](#curry)
+  - [diff](#diff)
   - [randomize](#randomize)
 - [How to create new exercise](#how-to-create-new-exercise)
 - [LICENSE](#license)
@@ -119,6 +120,56 @@ const value: number = bound(100); // should NOT throw error
 ```
 
 <a href="https://www.typescriptlang.org/v2/play?#code/CYUwxgNghgTiAEAzArgOzAFwJYHtXzGRhgE8AeAFXhAA8MRVgBneAMTU11QD4AKAKHhJUALngUANPwCUYqrXqMWvKGKypEIGPACCE+ADojcJhjUat8AELT4AXm7x1m7QCVB8APzwVYnbYcfIwNYAHMmMRt7R3chMVQQADctAG5+fgB6DPgAURoAB3B6YHSwPFN4KGBgex9VeFRkAFsAIy19FvjmtpgAxyh4AGp4FrSy1AqWnDQauwIiUhVq6V4ARmk0qZneDfgs+CYAC2mIGoxDmBwAd2piHBh+LcY1gAYX-VW33f2jk7OL663S4PfjjCqJKAQZAgLqtSxzJ7AV4vb7ZX7IU7wAByAHkqOdLjctMD+EA" target="_blank">
+  Check out the answer.
+</a>
+  
+### diff
+
+Difficulty: `MEDIUM` .
+
+Play this with <a href="https://www.typescriptlang.org/v2/play?#code/PTAEGEHsFsAcBsCmAXRoAGASAIgSwGb7qjICesayko0AhsgMYAWJTa+k88kA7rgHYBzUA0j8AJrmS4xAOgBQIUADEAmgEkANCu48S5NE1oBnVmmO1oafpbQBXafCml9FBWQqgcBfAB4AgtoAQgB8oAC8oLT8pADc8vIeaAAKAE6QsKaRAN7yoKC44gBcoPx20ABGiKnx+dLISCXGyKkCgrUktILGTS1tANoAuvEAvvHyovzNoOKI+LR28MhpGVmguXVdPaBDmvJjCUmgAEqIAI52uKmI4iuZEV54hL53xtpJkPgzcwtLryHjSbTWDpTIARhKpwuVxurweGwKxVAYIADCi9nUpI1QAByaAuWCQZo4vYHCZiYGg4wAJkh50u11uVPheURJVR6NZ9WxeIJROQJK5WxK-RxyGMOMGpPGSmMTEgi3EoCqoGq6VS5KmyFAINWAGY6dDGXCcqzCuy0RjOt0RVL9jKwHKFfAlSq1ZANUDtbrMgAWQ0M2HM02YhqIEq8nX8wUHIA" target="_blank">TypeScript playground</a> !
+
+```typescript
+// Complete `$Diff` type to match the following condition.
+// FYI, Flow type has the same name utility type.
+type $Diff<A, B> = any;
+
+type Props = {
+  id: number;
+  title: string;
+  tags: string[];
+};
+
+const defaultProps = {
+  tags: [],
+};
+
+type RequiredProps = $Diff<Props, typeof defaultProps>;
+
+const props1: RequiredProps = {
+  id: 100,
+  title: 'my post',
+};
+
+const props2: RequiredProps = {
+  id: 100,
+  title: 'my post',
+  tags: ['ts'],
+};
+
+// should be error
+const props3: RequiredProps = {
+  id: 100,
+  tags: [],
+};
+
+// should be error
+const props4: RequiredProps = {
+  title: 'my post',
+};
+```
+
+<a href="https://www.typescriptlang.org/v2/play?#code/C4TwDgpgBAJAIgSwGZIDwEEA0UBCA+KAXigG8oBtABSgQDsoBRAD2ACcBDAY2FQGsIQAeyRQsUfkJH4AugGoA-AC5RVaVAC+UAGQAoKKQrU6jJpwA2AVwAmEPgOGjsEhzIC0SlZTXqA3Dp2gkFCUrIJgAM5EpHo0Vsq0FgC2AEYQrH76wAjAZhDK4Wx0AOYZUMDsReH5hbRF5NJ+vv6cgrQFUDZI7BZmwCFhkcQkMeWVyvWYOk0B4NAAShAAjhYIrBBW-RFR8Mhom+HYgRAOnd29+3h+Oi1twFBgoREAjMoLy6vr+1HD+ghxUE8AAyAyaZbK5ZQAckSIHuggKkMm0xu7QeAwATK8lis1htHoNor9-kCQSNwXkoNDYWB4cBESMKlUKJDgOFIdIkVcAPRcqDhAAWgh6VigqSgaVCrGurVR+IAzFj3rivkMYn9lCTQWVGeMOVNubyBUKzCKxRLBFKUXc0REACyKnGffHfMk5ClUuEIzk6IA" target="_blank">
   Check out the answer.
 </a>
   
