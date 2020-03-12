@@ -28,7 +28,8 @@ jobs:
       run: |
         git config --global user.email "workflow@example.com"
         git config --global user.name "workflow user"
-        git commit -m 'update README.md' && git push ${REPO} HEAD:${{github.event.push.head.ref}} || true
+        git add README.md
+        git commit -m 'update README.md' && git push ${REPO} master || true
       env:
         REPO: https://${{github.actor}}:${{secrets.GITHUB_TOKEN}}@github.com/${{github.repository}}.git
 
