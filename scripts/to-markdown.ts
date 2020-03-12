@@ -1,6 +1,7 @@
 import fs from "fs";
 import path from "path";
 import lzstring from "lz-string";
+import toc from "markdown-toc";
 import { Output } from "./types";
 
 const toPlaygroundLink = (code: string) => {
@@ -12,6 +13,12 @@ const createHeading1 = () => {
   return `<!-- This is a generated file. Don't touch directly! -->
 
 # Type Dungeon
+TypeScript code exercise.
+
+<!-- toc -->
+<!-- tocstop -->
+
+## Exercise
   `;
 };
 
@@ -21,6 +28,8 @@ const createSection = (data: Output) => {
   const compressedQuestionCode = lzstring.compressToEncodedURIComponent(qBuf);
   return `
 ### ${data.name}
+
+Difficulty: \`${data.difficultyStr}\` .
 
 Play this with <a href="${toPlaygroundLink(qBuf)}" target="_blank">TypeScript playground</a> !
 
@@ -53,7 +62,7 @@ function main() {
 
   outputString += createFooter();
 
-  fs.writeFileSync(path.resolve(__dirname, "../dist/README.md"), outputString, "utf8");
+  fs.writeFileSync(path.resolve(__dirname, "../dist/README.md"), toc.insert(outputString), "utf8");
 }
 
 main();

@@ -164,9 +164,11 @@ function main() {
     const aOut = applyReplacements(ad);
     ts.sys.writeFile(__dirname + "/../dist/questions/" + qd.fileName, qOut.fullText);
     ts.sys.writeFile(__dirname + "/../dist/answers/" + ad.fileName, aOut.fullText);
+    const difficultyStr = qd.difficultyStr || "MEDIUM";
     const outJsonRecord: Output = {
       name: path.basename(fileName).replace(/\.tsx?$/, ""),
-      difficulty: difficultyMap[qd.difficultyStr || "MEDIUM"] || difficultyMap.MEDIUM,
+      difficultyStr,
+      difficulty: difficultyMap[difficultyStr] || difficultyMap.MEDIUM,
       questionFileName: `dist/questions/${fileName}`,
       answerFileName: `dist/answers/${fileName}`,
     };
