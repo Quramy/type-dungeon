@@ -6,7 +6,7 @@ import { Output } from "./types";
 
 const toPlaygroundLink = (code: string) => {
   const compressed = lzstring.compressToEncodedURIComponent(code);
-  return `https://www.typescriptlang.org/v2/play?#code/${compressed}`;
+  return `https://typescriptlang.org/play?#code/${compressed}`;
 };
 
 const createHeading1 = () => {
