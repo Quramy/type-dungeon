@@ -12,6 +12,7 @@ TypeScript code exercise.
   - [awaited](#awaited)
   - [curry](#curry)
   - [diff](#diff)
+  - [cellular-automaton](#cellular-automaton)
   - [randomize](#randomize)
 - [How to create new exercise](#how-to-create-new-exercise)
 - [LICENSE](#license)
@@ -170,6 +171,47 @@ const props4: RequiredProps = {
 ```
 
 <a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAJAIgSwGZIDwEEA0UBCA+KAXigG8oBtABSgQDsoBRAD2ACcBDAY2FQGsIQAeyRQsUfkJH4AugGoA-AC5RVaVAC+UAGQAoKKQrU6jJpwA2AVwAmEPgOGjsEhzIC0SlZTXqA3Dp2gkFCUrIJgAM5EpHo0Vsq0FgC2AEYQrH76wAjAZhDK4Wx0AOYZUMDsReH5hbRF5NJ+vv6cgrQFUDZI7BZmwCFhkcQkMeWVyvWYOk0B4NAAShAAjhYIrBBW-RFR8Mhom+HYgRAOnd29+3h+Oi1twFBgoREAjMoLy6vr+1HD+ghxUE8AAyAyaZbK5ZQAckSIHuggKkMm0xu7QeAwATK8lis1htHoNor9-kCQSNwXkoNDYWB4cBESMKlUKJDgOFIdIkVcAPRcqDhAAWgh6VigqSgaVCrGurVR+IAzFj3rivkMYn9lCTQWVGeMOVNubyBUKzCKxRLBFKUXc0REACyKnGffHfMk5ClUuEIzk6IA" target="_blank">
+  Check out the answer.
+</a>
+  
+### cellular-automaton
+
+Difficulty: :space_invader::space_invader::space_invader:
+
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOboCesaABuIvgK7wCGATgILPIxt9SAHgByAPjqhmAZzKVMxaaDoAlVoknIaiAHQAoEKAAqWZWqSbtoDolg3piUsiVtr60JGwfSiALQATYmhHWUhSNnhQAGMmeFZOUDZeflIAGkSdAGsdNh1QAHU8bA42aGjIfzQAIgBGGoAGKv1DFUQ2f1AMZGRYaQAuEEcdEkziWkDcyA5yYBHiYHNEAH06+tBiLypIZlBCNidQaCm0SuQ2Ynhm4AMwBlj47mToATDRCVBpDG34DvJiADc0CJfJhQORHIgSshiGEPmdULssKQ4ZxoRRlABtGoAXToV1AADEpqBEAAPUoIRDpO4sdiPPjPQRCGrvOyQf7ESpKOhY1I1VL1XGgABGiCiSQcmNSfKF4J8UPoNUk+w6GL5qWxoH8kEQ3KViVIHR5-I1km1uuU9Txei0tFAACFQABeUA1UAAH1A9QA3DdQHYUNDIb5iORSMcbVZFqshEYSaTUIalBj7elUw7sWJnXpQMZ44n-Mn+a70jjQAB+L2gPo5vNkgtF0vpQUV13V2tx+uOQugXle0uaytumu5zsJ7uN-tewdVkd18dJ3v1JuumfDjv5idLlctoft0ebxcY5dTst7udjhvbqe72e1nyAji+yN2xaxw89lNptOZ52gaMNLGYjPraaCMLSnA8AyLzCCIH5KKQzDQKKHBZi6zCkJk4aEKQIFWAAymsLrgXEdJQfwTL1MBoCGPhXysB0oq5sxLFYtiL5oPhbrEfcZFPDBzLUbR9E-CKaAsbmvL8oKHGgPhABMf4kQ85GMq88lCWAdHfIx4nMVJ6rLjJoFyQAzEpvGQfxTKmZpckibp+n8tJhkCgK7EmfhAAsFkQfSFGvF5dnaQxYm9s56oRUZbkyUAA" target="_blank">TypeScript playground</a> !
+
+```typescript
+// Complete the following type `CellularAutomaton<N>` using this `Rule` type.
+// The `Rule` type represents a rule of one-dimensional cellular automan, a.k.a. Wolfram code "110".
+// Read https://en.wikipedia.org/wiki/Rule_110 if you want more detail.
+//
+// `CellularAutomaton<N>` should give N-th generation state when starting `[1]`.
+// For example, `CellularAutomaton<1>` provides `[1,1,0]` because `[,,1]` generate `1` and [,1,] does `1` and `[1,,]` does `0`.
+type B = 1 | 0;
+// prettier-ignore
+type Rule110<T extends [B, B, B]> =
+  T extends [1, 1, 1] ? 0 :
+  T extends [1, 1, 0] ? 1 :
+  T extends [1, 0, 1] ? 1 :
+  T extends [1, 0, 0] ? 0 :
+  T extends [0, 1, 1] ? 1 :
+  T extends [0, 1, 0] ? 1 :
+  T extends [0, 0, 1] ? 1 :
+  T extends [0, 0, 0] ? 0 :
+  never;
+
+type Rule<T extends [B, B, B]> = Rule110<T>;
+
+type CellularAutomaton<N extends number> = unknown;
+
+type S0 = CellularAutomaton<0>; // Should be         [1]
+type S1 = CellularAutomaton<1>; // Should be       [1,1,0]
+type S2 = CellularAutomaton<2>; // Should be     [1,1,1,0,0]
+type S3 = CellularAutomaton<3>; // Should be   [1,1,0,1,0,0,0]
+type S4 = CellularAutomaton<4>; // Should be [1,1,1,1,1,0,0,0,0]
+```
+
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAQlC8UCMUA+UAMBuAUAejyjACcJhgBLCYgWgoHMA7Ae1J1EigCUBXAGwhIkGADwAVKBAAewCIwAmAZygBtGABpYmmAF0AfAhxQoE6bIXKVSTdeQ6oAfkxQAXEZOSZcpatu2M9k4obsamXha+mhg2gciu7mHmPlZRUbEY8aGeSZbRyDGOcSEeZt65NmmFwQnZZap5eUix1VmlESoNlU4ZxYwQAG7UuOzg0LwC4rXtGlqw+gjc-ILC4nrDHNAAygAy2wsA3u79AIZ8LrC4xnwUjADWDuc727gAvuujUACqjADuxMdgSZtHxPAyIRJ1fZQa53c43ABm1G4UBehS4rigUJOZ2cbxwI04YmIFDAEwAslMfDMIRFQQsVGTNGIVABybEsnSab5-AGrVnsnQ6d6cMkUeTycmU5TUqVQOng2VQmG3R67FHuJyHYzaqDY87jCDiYmkw2Mkx6NbuHXK86i8UTZls04crm-f6AsQWy7al7uc5anW6076pZGknkpleq3am2Y6M6vWLCYqR0C1KYfTenV47PC6AAOTMm1kHtl8rjxkTBpEHXTqedgstVxuKqgdolhrynteeagAEFiPRFCIAGJgqAj2UACgAdHPjoPFHDGIjiF8AJQIAzHRggQqfDF9QbEXvfRQACwo8OA4i5sp3IBU80QA6HIncU9n88X50+m-g267puwLKF+M4LkOy6rnK-6ASA0ZOFO8IUMQijAOcYiaHOM6kGhjywVAD7RucR7UDgloEtAYjMGIPAmkC4Qgrs44Bhg5wpvyDZCu4SC-owF5Xje9Z8C6Jg0XREzcu6qxRi8KaKtCLaqnsqJBBiAS9gAwhAfB8PwC59jwwDMAAtscxmMO+xj5rKjA8CZABG1DqO4B4gYRu5PvSnLuAAGmWaqIFiwZxL6LHuGxYm0fRvlNsg5zabp+nEIZxlmRZIj5q6AnXiItifHomiFjIxYQICsWWnJnysgIjD0MA54crKNndBiTS9psGSIIlel8AZRmmeZzCWRgaxQAQcrnsw-DyFATmBjqVg6JRcooN1Om9f1aVDZZSBjRNmxTTNc3QAtKTWAEK2bAATAsPXJalg0Zdd+2EId018LN82LdYv3qNEl0bHKADMd0bQ9A3pcNIjA69k0fV9p2RBd6gowDy1A5sAAsYNJX1KWQztIhY3D73HfN52o1TaP-f9y1AA" target="_blank">
   Check out the answer.
 </a>
   
