@@ -8,7 +8,7 @@ import "type-dungeon";
  * Read https://en.wikipedia.org/wiki/Rule_110 if you want more detail.
  *
  * `CellularAutomaton<N>` should give N-th generation state when starting `[1]`.
- * For example, `CellularAutomaton<1>` provides `[1,1,0]` because `[,,1]` generate `1` and [,1,] does `1` and `[1,,]` does `0`.
+ * For example, `CellularAutomaton<1>` provides `[1,1,0]` because `[,,1]` generates `1` and [,1,] does `1` and `[1,,]` does `0`.
  *
  * @difficulty hard
  *
@@ -31,40 +31,38 @@ type Rule<T extends [B, B, B]> = Rule110<T>;
 /**
  * @remove
  */
-type SLL = {
+type Cell = {
   val: B;
-  link?: SLL;
+  right?: Cell;
 };
 
 /**
  * @remove
  */
-type Unwrap<T extends SLL> = T extends { link: infer R } ? R : { val: 0 };
+type Right<T extends Cell> = T extends { right: infer R } ? R : { val: 0 };
 
 /**
  * @remove
  */
-type Triple<M extends B, T extends SLL> = [M, T["val"], Unwrap<T>["val"]];
-
-/**
- * @remove
- */
-type Middle<M extends B, T extends SLL> = T extends { link: SLL } ? {
-  val: Rule<Triple<M, T>>;
-  link: Middle<T["val"], Unwrap<T>>;
-} : {
-  val: Rule<Triple<M, T>>;
-  link: {
+type TailCell<LeftVal extends B, T extends Cell> = {
+  val: Rule<[LeftVal, T["val"], Right<T>["val"]]>;
+  right: {
     val: Rule<[T["val"], 0, 0]>;
   };
 };
-
 /**
  * @remove
  */
-type NextStep<T extends SLL> = {
+type MiddleCell<LeftVal extends B, T extends Cell> = T extends { right: Cell } ? {
+  val: Rule<[LeftVal, T["val"], Right<T>["val"]]>;
+  right: MiddleCell<T["val"], Right<T>>;
+} : TailCell<LeftVal, T>;
+/**
+ * @remove
+ */
+type HeadCell<T extends Cell> = {
   val: Rule<[0, 0, T["val"]]>;
-  link: Middle<0, T>;
+  right: MiddleCell<0, T>;
 };
 
 /**
@@ -74,15 +72,15 @@ type Args<F> = F extends (...args: infer U) => any ? U : never;
 /**
  * @remove
  */
-type Unshift<T, U extends any[]> = Args<((...args: U) => any) extends (...args: infer S) => any ? (first: T, ...rest: S) => any : never>;
+type Unshift<T, U extends any[]> = Args<(first: T, ...rest: U) => any>;
 
 /**
  * @remove
  */
-type ToTuple<T extends SLL> = {
+type ToTuple<T extends Cell> = {
   0: [T["val"]],
-  1: Unshift<T["val"], ToTuple<Unwrap<T>>>,
-}[T extends { link: SLL } ? 1 : 0];
+  1: Unshift<T["val"], ToTuple<Right<T>>>,
+}[T extends { right: Cell } ? 1 : 0];
 
 /**
  * @replaceTo
@@ -90,9 +88,9 @@ type ToTuple<T extends SLL> = {
  * type CellularAutomaton<N extends number> = unknown;
  * ```
  */
-type CellularAutomaton<N extends number, U extends any[] = [], X extends SLL = { val: 1 }> = {
-  0: ToTuple<X>;
-  1: CellularAutomaton<N, Unshift<1, U>, NextStep<X>>;
+type CellularAutomaton<N extends number, T extends Cell = { val: 1 }, U extends any[] = []> = {
+  0: ToTuple<T>;
+  1: CellularAutomaton<N, HeadCell<T>, Unshift<0, U>>;
 }[U["length"] extends N ? 0 : 1];
 
 type S0 = CellularAutomaton<0>; // Should be         [1]
