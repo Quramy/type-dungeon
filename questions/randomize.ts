@@ -3,11 +3,6 @@ import "type-dungeon";
 /**
  * @remove
  */
-type Func<A = any, R = any> = (args: A) => R;
-
-/**
- * @remove
- */
 type Union<V, U extends any[]> = {
   0: V;
   1: ((...v: U) => any) extends ((head: infer Head, ...tail: infer Tail) => any) ? Union<V | Head, Tail> : never;

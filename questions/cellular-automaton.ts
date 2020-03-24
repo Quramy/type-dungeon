@@ -68,11 +68,7 @@ type HeadCell<T extends Cell> = {
 /**
  * @remove
  */
-type Args<F> = F extends (...args: infer U) => any ? U : never;
-/**
- * @remove
- */
-type Unshift<T, U extends any[]> = Args<(first: T, ...rest: U) => any>;
+type Unshift<T, U extends any[]> = Parameters<(first: T, ...rest: U) => any>;
 
 /**
  * @remove
