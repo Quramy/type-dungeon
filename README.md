@@ -10,6 +10,7 @@ TypeScript code exercise.
   - [json-type](#json-type)
   - [to-strict](#to-strict)
   - [awaited](#awaited)
+  - [combine-latest](#combine-latest)
   - [curry](#curry)
   - [diff](#diff)
   - [cellular-automaton](#cellular-automaton)
@@ -97,6 +98,39 @@ type S2 = Awaited<P2>; // shuuld be string too;
 ```
 
 <a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAgg7gQwJbAgEwDwBUB8UC8UAFFlBAB6oB2aAzlAAoBOA9gLZK0QAySA1hAxIqAMwhMoADRwAoKFAD8UAN5QADAC5YiFOgzSoAXzlQtqzVFKGAlAG01AXQDcMmaEiMAjAUasOXDFpgJmEAcxwXd2gGACYfZnZOQQT-QSCQqnCI1wB6HLJySABjVDQ3cGgAZW9CeGRSjAZPCKg8qFoACxYAVwAbNCgAI2h0sMiKqEq42p0G2Ja2zu6+geH24LCoYBYWFyA" target="_blank">
+  Check out the answer.
+</a>
+  
+### combine-latest
+
+Difficulty: :space_invader::space_invader:
+
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOagAGAxjAEZmIAyAhqgM7JWjYCupGsmKRSoACaIa8VgCd2I0gDoAUCDVgAKhmIdeAoYtC7QfDonGgSmUACUAHgCkAyqACCABQCSS0M8RoGMjIsBwAXCCy9gBWHEqSAG7ArLDEwGSS9sD8gsKiwHTQjKQs7IhcoKpkqLLYrDRoAPL05rIJrPRIADyaAHygAN4qoKAcfC00ssT0iAAUNPRhoLMJS5oAlKAAvP0JkMTi60t7BwDcKgC+KiqS0nI4BnlihcWlnMizSl9y5OGgza12p1EF1WKQAJ69ADaAF0jv8Wog2h1ugIANakIikXrnDSgACi9lgUlQ4mutxksjQdFIFQ4AEYlgCkUDulwphQcTcpJTqaI6QAmJmI5HArqkPhFJFcin3UA0ukAZmFgJRIPokDwiDBXJULyYbHeswZABpRgKzRxFeslGMJlMZrNZlCEvSzQkLaAEoq4dt+kMRiAvfTRhhIHx4JYZqNkBzyMNQEGPaHw5HQNGJVLZAmk4qUxGo2gNVqwZd1ucgA" target="_blank">TypeScript playground</a> !
+
+```typescript
+// Complete the following `combineLatest` function declaration.
+//
+// This function is used with RxJS API. See https://rxjs.dev/api/index/function/combineLatest .
+interface Observable<T> {
+  subscribe(cb: (v: T) => void): void;
+}
+
+declare function combineLatest(...args: Observable<any>[]): Observable<unknown>;
+
+// Expected
+
+declare const s1: Observable<string>;
+declare const s2: Observable<number>;
+declare const s3: Observable<boolean>;
+
+combineLatest(s1, s2, s3).subscribe(([v1, v2, v3]) => {
+  // v1 should be string
+  // v2 should be number
+  // v3 should be boolean
+});
+```
+
+<a href="https://www.typescriptlang.org/play#code/JYOwLgpgTgZghgYwgAgPICMDO0Bud0A2EAPACoB8yA3gFDLKYCuWCUw6EAFAugFzKcc-UgEpkAXko4A9sAAmI-jPkBuGgF8aNMAE8ADigCqIdNIAeoAOZlK45KWQQzkEHMxosufEWKgY0ZABlSgB+IOR+EAgcaDUaOQgEAjgoFBhGEAQwYGkQZARpAFt0UAgAGThITDBiQ0dnCFd3DGwoPEISOBAdcgBtAF1yTjpkADpxlMtMfkMaRQ9W9p8R2np6XoAFZFBkAGsIHWkYZEN+mZNzK1rNwbV6TXI4gHon5ABRMwMsiDktBKSUigCiBqgwAIz8FpeDrEapsECWR7xRLJVL5XKgzAAJkhnja3hIIEYxWgSP+qKBGLADAAzLjFgTiKZpEQukiaAViqUKlUwJxMGCADQMLHCzA0kSjJgsNgcTicXo4IXIHCilU0-piSTUEYvFVghgAC2kjAIcmQHAYYHhll1r1VRpNZotKCJJKgdvVjtN5stzNZIA0IjUQA" target="_blank">
   Check out the answer.
 </a>
   
