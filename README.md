@@ -7,6 +7,7 @@ TypeScript code exercise.
 <!-- toc -->
 
 - [Exercise](#exercise)
+  - [array-to-union](#array-to-union)
   - [json-type](#json-type)
   - [to-strict](#to-strict)
   - [awaited](#awaited)
@@ -22,6 +23,27 @@ TypeScript code exercise.
 
 ## Exercise
 
+### array-to-union
+
+Difficulty: :space_invader:
+
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRoAGASAIgSwGb7qjICesayko0AhsgMYAWJTa+k88kA7rgHYBzUA0j8AJrmS4xAOgBQZCiUgBVfjP4AeACqhEAD1QSAzqACCAJ0u1SAGVwBrRFtr9SAPg+gAvKACu-I78vPwA3PLyIKAAogYUDKjikaL8JsigzqRmfgDaAES0goj5ADSg+fi4lukAcrTQJeX58LR1DSUAuqBtImLpEYrkaADSiNm+KuqaWkqIkPiZ4yYeYaDRJkyQ-vDioABGaIXF+aAAPhVVNcj1jacXLW03HfnyQA" target="_blank">TypeScript playground</a> !
+
+```typescript
+// Complete `$Diff` type to match the following condition.
+type toUnion<T extends ArrayLike<any>> = unknown;
+
+// Expected
+
+const keys = ["age", "firstName", "lastName"] as const;
+
+type Keys = toUnion<typeof keys>; // should be "age" | "firstName" | "lastName"
+```
+
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBMD2CqA7AlrRAeAKlCAPYEiAJgM5QCCATpQIYgAyyA1hOjYiAHydQC8UmANqIArgFsARhEoBdANwAoBQHplUAKK5IAYwJEl2tCWBQWIMv0EAiGgHMIVgDRQrAM2SVjAORpiHzqwAbGm9fBxkoEKhDRGNFBVBIKABpCHM+GAQUNHREiFhXUzSSTjkoVSgSAAtYEUCiKCkXOwcoAB8Xd09gHz8rdpdg0L6FIA" target="_blank">
+  Check out the answer.
+</a>
+  
 ### json-type
 
 Difficulty: :space_invader:
