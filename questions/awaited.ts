@@ -9,7 +9,7 @@ import "type-dungeon";
  *
  * @replaceTo
  * ```
- * type Awaited<T> = any;
+ * type Awaited<T> = unknown;
  * ```
  */
 type Awaited<T> = (T extends PromiseLike<infer X> ? { 0: Awaited<X> } : { 0: T })[0];

@@ -39,13 +39,13 @@ const props2: RequiredProps = {
   tags: ["ts"],
 };
 
-// should be error
+// @ts-expect-error
 const props3: RequiredProps = {
   id: 100,
   tags: [],
 };
 
-// should be error
+// @ts-expect-error
 const props4: RequiredProps = {
   title: "my post",
 };
