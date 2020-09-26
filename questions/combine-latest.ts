@@ -3,7 +3,7 @@ import "type-dungeon";
 /**
  *
  * @typeQuestion
- * Complete the following `combineLatest` function declaration. 
+ * Complete the following `combineLatest` function declaration.
  *
  * This function is used with RxJS API. See https://rxjs.dev/api/index/function/combineLatest .
  *
@@ -24,9 +24,13 @@ type Unboxing<T> = T extends Observable<infer S> ? S : never;
  * declare function combineLatest(...args: Observable<any>[]): Observable<unknown[]>
  * ```
  */
-declare function combineLatest<U extends Observable<any>[]>(...args: U): Observable<{
-  [P in keyof U]: Unboxing<U[P]>;
-}>;
+declare function combineLatest<U extends Observable<any>[]>(
+  ...args: U
+): Observable<
+  {
+    [P in keyof U]: Unboxing<U[P]>;
+  }
+>;
 
 // Expected
 

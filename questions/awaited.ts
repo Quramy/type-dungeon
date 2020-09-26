@@ -12,7 +12,9 @@ import "type-dungeon";
  * type Awaited<T> = unknown;
  * ```
  */
-type Awaited<T> = (T extends PromiseLike<infer X> ? { 0: Awaited<X> } : { 0: T })[0];
+type Awaited<T> = (T extends PromiseLike<infer X>
+  ? { 0: Awaited<X> }
+  : { 0: T })[0];
 
 type P1 = Promise<string>;
 type P2 = Promise<Promise<string>>;

@@ -14,8 +14,11 @@ import "type-dungeon";
  * ```
  *
  */
-declare function curry<T extends Function>(fn: T):
-  T extends (a: infer A, ...rest: infer B) => infer R ? (a: A) => (...args: B) => R : never;
+declare function curry<T extends Function>(
+  fn: T,
+): T extends (a: infer A, ...rest: infer B) => infer R
+  ? (a: A) => (...args: B) => R
+  : never;
 
 // Expected
 
