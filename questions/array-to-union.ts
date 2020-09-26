@@ -3,7 +3,7 @@ import "type-dungeon";
 /**
  *
  * @typeQuestion
- * Complete `$Diff` type to match the following condition.
+ * Complete the following `toUnion` type to match the following excepcted condition.
  *
  * @difficulty easy
  *
