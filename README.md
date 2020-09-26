@@ -83,11 +83,11 @@ const age: number = strictObj.age; // typeof age should not be undefined / null
 
 Difficulty: :space_invader::space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEFEBMEsBdVgCwKagE7QOaPoghgHaSgDO0kqsA9qALZ6wDGiCKoAZlQDZdUDu0AplDIAHgAdkjWMmKwAnpNCMqRONFUkAdACgFSgIJ88cWQB4AKgD5QAXlCF5Abh17FqAAoBGO6A9oqWmgSZDMSWAwhKxd9TwAmX39A4NCkoJCwiMFMK2jXEBEJKRlINyUAZR97IxMSs29o0AKSRCoAVy5iACNUcMjMGPdQcoTq41NIerjG5sQ2ju7erKEEKioXIA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEFEBMEsBdVgCwKagE7QOaPoghgHaSgDO0kqsA9qALZ6wDGiCKoAZlQDZdUDu0AplDIAHgAdkjWMmKwAnpNCMqRONFUkAdACgFSgIJ88cWQB4AKgD5QAXlABXAgGsC-AgG4dexagAKAIx2oH5oVLTQJMhmJLAYQlZe+v4ATMGh4ZHRGRFRMXGCmFaJ3iAiElIykD5KAMpB9kYmVWaBiaBlJIhUDlzEAEaosfGYSb6gtWmNxqaQrSntnYgOvQNDBUIIVFReQA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Edit the right hand side to match the following expected type conditions.
-type Awaited<T> = any;
+type Awaited<T> = unknown;
 
 type P1 = Promise<string>;
 type P2 = Promise<Promise<string>>;
@@ -105,7 +105,7 @@ type S2 = Awaited<P2>; // shuuld be string too;
 
 Difficulty: :space_invader::space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOagAGAxjAEZmIAyAhqgM7JWjYCupGsmKRSoACaIa8VgCd2I0gDoAUCDVgAKhmIdeAoYtC7QfDonGgSmUACUAHgCkAyqACCABQCSS0M8RoGMjIsBwAXCCy9gBWHEqSAG7ArLDEwGSS9sD8gsKiwHTQjKQs7IhcoKpkqLLYrDRoAPL05rIJrPRIADyaAHygAN4qoKAcfC00ssT0iAAUNPRhoLMJS5oAlKAAvP0JkMTi60t7BwDcKgC+KiqS0nI4BnlihcWlnMizSl9y5OGgza12p1EF1WKQAJ69ADaAF0jv8Wog2h1ugIANakIikXrnDSgACi9lgUlQ4mutxksjQdFIFQ4AEYlgCkUDulwphQcTcpJTqaI6QAmJmI5HArqkPhFJFcin3UA0ukAZmFgJRIPokDwiDBXJULyYbHeswZABpRgKzRxFeslGMJlMZrNZlCEvSzQkLaAEoq4dt+kMRiAvfTRhhIHx4JYZqNkBzyMNQEGPaHw5HQNGJVLZAmk4qUxGo2gNVqwZd1ucgA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOagAGAxjAEZmIAyAhqgM7JWjYCupGsmKRSoACaIa8VgCd2I0gDoAUCDVgAKhmIdeAoYtC7QfDonGgSmUACUAHgCkAyqACCABQCSS0M8RoGMjIsBwAXCCy9gBWHEqSAG7ArLDEwGSS9sD8gsKiwHTQjKQs7IhcoKpkqLLYrDRoAPL05rIJrPRIADyaAHygAN4qoKAcfC00ssT0iAAUNPRhoLMJS5oAlKAAvP0JkMTi60t7BwDcKgC+KiqS0nI4BnlihcWlnMizw5VKSnLk4aBmq12p1EF1WKQAJ69ADaAF0VEdAS1EG0Ot0BABrUhEUjw3rnDSgACi9lgUlQ4mutxksjQdFIFQ4AEYlkDUSDulwphQCTcpLT6aImQAmNkotGgrqkPhFVF8mn3UAMpkAZnFwPRYPokDwiAhfJULyYbHesxZABpRiKrRxVeslGMJlMZrNZjCEsyrQkbaAEqq4ZsdoMviA-czRhhIHx4JYZqNkDzyF8VchQHSxvBkKyE0ntuHCSMwz7I9HY6B4zK5bIU8K0xmY8gxaAqzNZPmfYXQMXVaWY3G0Dq9RDa4z6+VG+qK7qkBCO6rzhd1ucgA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Complete the following `combineLatest` function declaration.
@@ -115,7 +115,9 @@ interface Observable<T> {
   subscribe(cb: (v: T) => void): void;
 }
 
-declare function combineLatest(...args: Observable<any>[]): Observable<unknown>;
+declare function combineLatest(
+  ...args: Observable<any>[]
+): Observable<unknown[]>;
 
 // Expected
 
@@ -125,12 +127,17 @@ declare const s3: Observable<boolean>;
 
 combineLatest(s1, s2, s3).subscribe(([v1, v2, v3]) => {
   // v1 should be string
+  const result1: string = v1;
+
   // v2 should be number
+  const result2: number = v2;
+
   // v3 should be boolean
+  const result3: boolean = v3;
 });
 ```
 
-<a href="https://www.typescriptlang.org/play#code/JYOwLgpgTgZghgYwgAgPICMDO0Bud0A2EAPACoB8yA3gFDLKYCuWCUw6EAFAugFzKcc-UgEpkAXko4A9sAAmI-jPkBuGgF8aNMAE8ADigCqIdNIAeoAOZlK45KWQQzkEHMxosufEWKgY0ZABlSgB+IOR+EAgcaDUaOQgEAjgoFBhGEAQwYGkQZARpAFt0UAgAGThITDBiQ0dnCFd3DGwoPEISOBAdcgBtAF1yTjpkADpxlMtMfkMaRQ9W9p8R2np6XoAFZFBkAGsIHWkYZEN+mZNzK1rNwbV6TXI4gHon5ABRMwMsiDktBKSUigCiBqgwAIz8FpeDrEapsECWR7xRLJVL5XKgzAAJkhnja3hIIEYxWgSP+qKBGLADAAzLjFgTiKZpEQukiaAViqUKlUwJxMGCADQMLHCzA0kSjJgsNgcTicXo4IXIHCilU0-piSTUEYvFVghgAC2kjAIcmQHAYYHhll1r1VRpNZotKCJJKgdvVjtN5stzNZIA0IjUQA" target="_blank">
+<a href="https://www.typescriptlang.org/play#code/JYOwLgpgTgZghgYwgAgPICMDO0Bud0A2EAPACoB8yA3gFDLKYCuWCUw6EAFAugFzKcc-UgEpkAXko4A9sAAmI-jPkBuGgF8aNMAE8ADigCqIdNIAeoAOZlK45KWQQzkEHMxosufEWKgY0ZABlSgB+IOR+EAgcaDUaOQgEAjgoFBhGEAQwYGkQZARpAFt0UAgAGThITDBiQ0dnCFd3DGwoPEISOBAdcgBtAF1yTjpkADpxlMtMfkMaRQ9W9p8R2np6XoAFZFBkAGsIHWkYZEN+mZNzK1rNwbV6TXI4gHon5ABRMwMsiDktBKSUigCiBqgwAIz8FpeDrEapsECWR7xRLJVL5XKgzAAJkhnja3hIIEYxWgSP+qKBGLADAAzLjFgTiKZpEQukiaAViqUKlUwJxMGCADQMLHCzA0kSjJgsNgcTicXo4IXIHCilU0-piSTUEYvFVghgAC2kjAIcmQHAYYHhlhGwNBqSYBDAEKtNok+ri9D1qqNJrNFpQRJJUDtVOQjtNYBxyGDHCgHtVXuQPppftN5stzNZIDDIOpkeddIt0hZEC6iZpanUIjUQA" target="_blank">
   Check out the answer.
 </a>
   
@@ -138,7 +145,7 @@ combineLatest(s1, s2, s3).subscribe(([v1, v2, v3]) => {
 
 Difficulty: :space_invader::space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DMCuA7AY2QEtJ90BPWNZSUaAQ2UI3S1G0nnkgHcS+AOahEADxrFEAEyo1QhctJKlyAOgBQ0xIXiMATjgLEyFQrn37KACmz4AXKABix1fgCUjxvkoBuDRogoACiEjqo0gGK+ADOyKCM0rIAvKDWjI74uNAARoj6ADSgOZnZefruoMkAfAmgANTF-tFxxZAEKQoWVulJ7tYAjO7+Oe340tbDoEExGO3wspj6-KKWkPoaox2DAAw7RQN7UzNzuAvsy3yryxsaLfEAbozwuIiluflVbduHO8dgs3msgAcgB5AAqFxW+RuGiAA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DMCuA7AY2QEtJ90BPWNZSUaAQ2UI3S1G0nnkgHcS+AOahEADxrFEAEyo1QhctJKlyAOgBQ0xIXiMATjgLEyFQrn37KACmz4AXKABix1fgCUjxvkoBuDRogoACiEjqo0gGK+ADOyKCM0rIAvKDWjI74uNAARoj6ADSgOZnZefruoMkAfAmgANTF-tFxxZAEKQoWVulJ7tYAjO7+gWAAAsgxALTiksgzlpD6oAAGOe340iugMRjt8LKMhISIsPEDCfpC2Yj4yBrrHdbDAUET07PhC-pLq4+b212+0Ox1O50u12gt3u-2kgwADPCigNEcNQEEgbgDuwfnxRIt9FFyK0AG6MeC4RClXL5KptJ4o+EvIA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Complete the function type to match the following expected type condition.
@@ -148,13 +155,17 @@ declare function curry(fn: Function): any;
 
 const add = (a: number, b: number) => a + b;
 const bound = curry(add)(1);
-bound(); // should throw error
+
+// @ts-expect-error `bound` should accept 1 argument
+bound();
+
+// @ts-expect-error `bound` should accept 1 argument
 bound(100, 100); // should throw error
 
-const value: number = bound(100); // should NOT throw error
+const value: number = bound(100);
 ```
 
-<a href="https://www.typescriptlang.org/play#code/CYUwxgNghgTiAEAzArgOzAFwJYHtXzGRhgE8AeAFXhAA8MRVgBneAMTU11QD4AKAKHhJUALngUANPwCUYqrXqMWvKGKypEIGPACCE+ADojcJhjUat8AELT4AXm7x1m7QCVB8APzwVYnbYcfIwNYAHMmMRt7R3chMVQQADctAG5+fgB6DPgAURoAB3B6YHSwPFN4KGBgex9VeFRkAFsAIy19FvjmtpgAxyh4AGp4FrSy1AqWnDQauwIiUhVq6V4ARmk0qZneDfgs+CYAC2mIGoxDmBwAd2piHBh+LcY1gAYX-VW33f2jk7OL663S4PfjjCqJKAQZAgLqtSxzJ7AV4vb7ZX7IU7wAByAHkqOdLjctMD+EA" target="_blank">
+<a href="https://www.typescriptlang.org/play#code/CYUwxgNghgTiAEAzArgOzAFwJYHtXzGRhgE8AeAFXhAA8MRVgBneAMTU11QD4AKAKHhJUALngUANPwCUYqrXqMWvKGKypEIGPACCE+ADojcJhjUat8AELT4AXm7x1m7QCVB8APzwVYnbYcfIwNYAHMmMRt7R3chMVQQADctAG5+fgB6DPgAURoAB3B6YHSwPFN4KGBgex9VeFRkAFsAIy19FvjmtpgAxyh4AGp4FrSy1AqWnDQauwIiUhVq6V4ARmk0zOyAAQwmAFpaQsxD4hxtAAMpmYv4JgALaYgaqDAwEHyMeFXKmFDmhgYfjXRi8DbpLLwXYHI5FU4wc7wK7TRi3B5PF5vD5fH5hAGoIEg4BrAAMJP0qzJG3gkPRyGe8Aw9wRAHdqGcYKVyl9ElAIMgQF1WpY5kTSSTwUA" target="_blank">
   Check out the answer.
 </a>
   
@@ -162,7 +173,7 @@ const value: number = bound(100); // should NOT throw error
 
 Difficulty: :space_invader::space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRoAGASAIgSwGb7qjICesayko0AhsgMYAWJTa+k88kA7rgHYBzUA0j8AJrmS4xAOgBQIUADEAmgEkANCu48S5NE1oBnVmmO1oafpbQBXafCml9FBWQqgcBfAB4AgtoAQgB8oAC8oLT8pADc8vIeaAAKAE6QsKaRAN7yoKC44gBcoPx20ABGiKnx+dLISCXGyKkCgrUktILGTS1tANoAuvEAvvHyovzNoOKI+LR28MhpGVmguXVdPaBDmvJjCUmgAEqIAI52uKmI4iuZEV54hL53xtpJkPgzcwtLryHjSbTWDpTIARhKpwuVxurweGwKxVAYIADCi9nUpI1QAByaAuWCQZo4vYHCZiYGg4wAJkh50u11uVPheURJVR6NZ9WxeIJROQJK5WxK-RxyGMOMGpPGSmMTEgi3EoCqoGq6VS5KmyFAINWAGY6dDGXCcqzCuy0RjOt0RVL9jKwHKFfAlSq1ZANUDtbrMgAWQ0M2HM02YhqIEq8nX8wUHIA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRoAGASAIgSwGb7qjICesayko0AhsgMYAWJTa+k88kA7rgHYBzUA0j8AJrmS4xAOgBQIUADEAmgEkANCu48S5NE1oBnVmmO1oafpbQBXafCml9FBWQqgcBfAB4AgtoAQgB8oAC8oLT8pADc8vIeaAAKAE6QsKaRAN7yoKC44gBcoPx20ABGiKnx+dLISCXGyKkCgrUktILGTS1tANoAuvEAvvHyovzNoOKI+LR28MhpGVmguXVdPaBDmvJjCUmgAEqIAI52uKmI4iuZEV54hL53xtpJkPgzcwtLryHjSbTWDpTIARhKpwuVxurweGwKxVAYIADCi9nUpI1QAByaAuWCQZo4vYHCZiYGg4wAJkh50u11uVPheURJVR6NZ9WxeIJROQJK5WxK-RxyGMOMGpPGSgAAuKALSIAAeFAYyCVqXSqXJU2QoBBqwAzHToYy4TlWYV2WiMZ1uiKpfsZWB5cYlarEOrNdrdZTVgAWU0M2HMy2YhqIEq8g38wUHIA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Complete `$Diff` type to match the following condition.
@@ -192,19 +203,19 @@ const props2: RequiredProps = {
   tags: ['ts'],
 };
 
-// should be error
+// @ts-expect-error
 const props3: RequiredProps = {
   id: 100,
   tags: [],
 };
 
-// should be error
+// @ts-expect-error
 const props4: RequiredProps = {
   title: 'my post',
 };
 ```
 
-<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAJAIgSwGZIDwEEA0UBCA+KAXigG8oBtABSgQDsoBRAD2ACcBDAY2FQGsIQAeyRQsUfkJH4AugGoA-AC5RVaVAC+UAGQAoKKQrU6jJpwA2AVwAmEPgOGjsEhzIC0SlZTXqA3Dp2gkFCUrIJgAM5EpHo0Vsq0FgC2AEYQrH76wAjAZhDK4Wx0AOYZUMDsReH5hbRF5NJ+vv6cgrQFUDZI7BZmwCFhkcQkMeWVyvWYOk0B4NAAShAAjhYIrBBW-RFR8Mhom+HYgRAOnd29+3h+Oi1twFBgoREAjMoLy6vr+1HD+ghxUE8AAyAyaZbK5ZQAckSIHuggKkMm0xu7QeAwATK8lis1htHoNor9-kCQSNwXkoNDYWB4cBESMKlUKJDgOFIdIkVcAPRcqDhAAWgh6VigqSgaVCrGurVR+IAzFj3rivkMYn9lCTQWVGeMOVNubyBUKzCKxRLBFKUXc0REACyKnGffHfMk5ClUuEIzk6IA" target="_blank">
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAJAIgSwGZIDwEEA0UBCA+KAXigG8oBtABSgQDsoBRAD2ACcBDAY2FQGsIQAeyRQsUfkJH4AugGoA-AC5RVaVAC+UAGQAoKKQrU6jJpwA2AVwAmEPgOGjsEhzIC0SlZTXqA3Dp2gkFCUrIJgAM5EpHo0Vsq0FgC2AEYQrH76wAjAZhDK4Wx0AOYZUMDsReH5hbRF5NJ+vv6cgrQFUDZI7BZmwCFhkcQkMeWVyvWYOk0B4NAAShAAjhYIrBBW-RFR8Mhom+HYgRAOnd29+3h+Oi1twFBgoREAjMoLy6vr+1HD+ghxUE8AAyAyaZbK5ZQAckSIHuggKkMm0xu7QeAwATK8lis1htHoNor9-kCQSNwXkoNDYWB4cBESMKlUKJDgOFIdIkVcAPRcqAAAVZrggTEg3CFrFCrGurVR+IAzFj3rivkMYn9lCTQWVGeMOVNubyBeEhSKIGK0pLpbd7viACyKnGffHfMk5ClUuEIzk6IA" target="_blank">
   Check out the answer.
 </a>
   
