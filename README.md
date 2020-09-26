@@ -27,10 +27,10 @@ TypeScript code exercise.
 
 Difficulty: :space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRoAGASAIgSwGb7qjICesayko0AhsgMYAWJTa+k88kA7rgHYBzUA0j8AJrmS4xAOgBQZCiUgBVfjP4AeACqhEAD1QSAzqACCAJ0u1SAGVwBrRFtr9SAPg+gAvKACu-I78vPwA3PLyIKAAogYUDKjikaL8JsigzqRmfgDaAES0goj5ADSg+fi4lukAcrTQJeX58LR1DSUAuqBtImLpEYrkaADSiNm+KuqaWkqIkPiZ4yYeYaDRJkyQ-vDioABGaIXF+aAAPhVVNcj1jacXLW03HfnyQA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOagAGykAqqcZKVegJ6xq2jQCGyAYwzosoXPiJlKiAB4DEsAagAmoAc2XFkTUgDoAUMg5d6jZgB4AKqFmpSygM6gAggCdXvNgBliAa0TmvKRsAHwhoAC8oACupL6kRKQA3Pr6IKAAojKcSojKqeqkDsig-mxOUQDaAES85IjVADSg1djErsUAcrzQDc3V8LxdPQ0AuqBDaszFKYbGoADSiOWR6KY65kackNilyw4hSaDpDhiQ0fCqAEZotfXVoAA+LW0dyN29D88DQ+8j1fogA" target="_blank">TypeScript playground</a> !
 
 ```typescript
-// Complete `$Diff` type to match the following condition.
+// Complete the following `toUnion` type to match the following excepcted condition.
 type toUnion<T extends ArrayLike<any>> = unknown;
 
 // Expected
