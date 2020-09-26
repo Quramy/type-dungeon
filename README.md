@@ -223,15 +223,15 @@ const props4: RequiredProps = {
 
 Difficulty: :space_invader::space_invader::space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOboCesaABuIvgK7wCGATgILPIxt9SAHgByAPjqhmAZzKVMxaaDoAlVoknIaiAHQAoEKAAqWZWqSbtoDolg3piUsiVtr60JGwfSiALQATYmhHWUhSNnhQAGMmeFZOUDZeflIAGkSdAGsdNh1QAHU8bA42aGjIfzQAIgBGGoAGKv1DFUQ2f1AMZGRYaQAuEEcdEkziWkDcyA5yYBHiYHNEAH06+tBiLypIZlBCNidQaCm0SuQ2Ynhm4AMwBlj47mToATDRCVBpDG34DvJiADc0CJfJhQORHIgSshiGEPmdULssKQ4ZxoRRlABtGoAXToV1AADEpqBEAAPUoIRDpO4sdiPPjPQRCGrvOyQf7ESpKOhY1I1VL1XGgABGiCiSQcmNSfKF4J8UMQ3Jqkn2HQxfNS2NA-kgiuUysSpA6PP5mskOr1dHqeL0WlooAAQqAALygGqgAA+oHqAG4bqA7ChoZDfMRyKRjrarItVkIjCTSagjUoMQ70mnHdixC69KBjAmk-4U-y3ekcaAAPze0B9XP5smF4tl9KCytumt1+MNxxF0C871lrVV921vNdxM9psD71D6uj+sT5N9+rNt2zkedguT5er1vDjtjrdLjEr6fl-fz8eNnfTvdzus+QEcP1R+2LONH3up9PprMu0Axg0cZiC+dpoIwtKcDwDIvMIIifkopDMNAoocNmrrMKQmQRoQpCgVYADKayuhBcR0tB-BMvUIGgIYBFfKwHSinmLGsVi2KvmgBHuiR9zkU8sHMjRdEMT8IpoKxea8vygqcaABEAEz-qRDwUYyrwKcJYD0d8TESSx0kaiuslgfJADMyl8VBAlMmZWnyaJekGfyMlGQKAocaZBEACyWZB9KUa83n2TpjHiX2LkapFxnubJQA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOboCesaABuIvgK7wCGATgILPIxt9SAHgByAPjqhmAZzKVMxaaDoAlVoknIaiAHQAoEKAAqWZWqSbtoDolg3piUsiVtr60JGwfSiALQATYmhHWUhSNnhQAGMmeFZOUDZeflIAGkSdAGsdNh1QAHU8bA42aGjIfzQAIgBGGoAGKv1DFUQ2f1AMZGRYaQAuEEcdEkziWkDcyA5yYBHiYHNEAH06+tBiLypIZlBCNidQaCm0SuQ2Ynhm4AMwBlj47mToATDRCVBpDG34DvJiADc0Jg0CJfJhQORHIgSshiGEPmdULssKQEZxYRRlABtGoAXToV1AADEpqBEAAPUoIRDpO4sdiPPjPQRCGrvOyQf7ESpKOg41I1VL1fGgABGiCiSQc2PqQoFIshPhhiF5NTo6SxssFwtA-kgKuUavS+w6fO1QpFeoNdHqBL0WlooAAQqAALygGqgAA+oHqAG4bqA7ChYdDfMRyKRjvarItVkIjGTyahSP4lFinelM87cWI3XpQMYkym06B+R70njQAB+X2gPoFosUkvpwUV324mse+uNxPNxyl8uyj2d2uehuFvvJget9LDnW1tYTpvT1Pp4dtqtjnuT4szssbuej7vLqctg9zyvH8e9vdri++o9dpeNnyAjgBmOOxYJu+D7MAbmbqgHGDQJmIn4OmgjD0pwPBMi8wgiH+SikMw0DihwebuswpCZFGhCkJ+hgAKLkrQUSoP4X5oAAyms7owXEDLwfwLL1BBoCGLRXysB04qFoJQlCTiuI0aAtGeox9wsU8iGspx3G8T8YpoMJwn8tqYlQRJABMwFMQ8rHMq8umKWAPHfPxanqWWgr2XKwribRADMBkyXBcksi55kScp1m2ZpcrmrKTk6bRAAs7mwYybGvBFvmWXxqkaQ5aWOY52lWLRACs0XMZ5CEsjliX+SlhZBaFwUZVVYXZQAbPlRlea89WlVZKVBSFAo9bVNViUAA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Complete the following type `CellularAutomaton<N>` using this `Rule` type.
 // The `Rule` type represents a rule of one-dimensional cellular automan, a.k.a. Wolfram code "110".
 // Read https://en.wikipedia.org/wiki/Rule_110 if you want more detail.
 //
-// `CellularAutomaton<N>` should give N-th generation state when starting `[1]`.
-// For example, `CellularAutomaton<1>` provides `[1,1,0]` because `[,,1]` generates `1` and [,1,] does `1` and `[1,,]` does `0`.
+// `CellularAutomaton<N>` should give the N-th generation state when starting `[1]`.
+// For example, `CellularAutomaton<1>` provides `[1,1,0]` because `[0,0,1]` generates `1`, [0,1,0] does `1`, and `[1,0,0]` does `0`.
 type B = 1 | 0;
 // prettier-ignore
 type Rule110<T extends [B, B, B]> =
@@ -249,14 +249,17 @@ type Rule<T extends [B, B, B]> = Rule110<T>;
 
 type CellularAutomaton<N extends number> = unknown;
 
-type S0 = CellularAutomaton<0>; // Should be         [1]
-type S1 = CellularAutomaton<1>; // Should be       [1,1,0]
-type S2 = CellularAutomaton<2>; // Should be     [1,1,1,0,0]
-type S3 = CellularAutomaton<3>; // Should be   [1,1,0,1,0,0,0]
-type S4 = CellularAutomaton<4>; // Should be [1,1,1,1,1,0,0,0,0]
+// Expected
+type S0 = CellularAutomaton<0>; // Should be             [1]
+type S1 = CellularAutomaton<1>; // Should be           [1,1,0]
+type S2 = CellularAutomaton<2>; // Should be         [1,1,1,0,0]
+type S3 = CellularAutomaton<3>; // Should be       [1,1,0,1,0,0,0]
+type S4 = CellularAutomaton<4>; // Should be     [1,1,1,1,1,0,0,0,0]
+type S5 = CellularAutomaton<5>; // Should be   [1,1,0,0,0,1,0,0,0,0,0]
+type S6 = CellularAutomaton<6>; // Should be [1,1,1,0,0,1,1,0,0,0,0,0,0]
 ```
 
-<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAQlC8UCMUA+UAMBuAUAejyjACcJhgBLCYgWgoHMA7Ae1J1EigCUBXAGwhIkGADwAVKBAAewCIwAmAZygBtGABpYmmAF0AfAhxQoE6bIXKVSTdeQ6oAfkxQAXEZOSZcpatu2M9k4obsamXha+mhg2gciu7mHmPlZRUbEY8aGeSZbRyDGOcSEeZt65NmmFwQnZZap5eUix1VmlESoNlU4ZxYwQAG7UuOzg0LwC4rXtGlqw+gjc-ILC4nrDHNAAwhB8fAsA3u79AIZ8LrC4xsQMABbADufbu7gAvuuj3LfAk20+T3wGRCJOr7KDXeh3c4URgAM2o3CgL0KXFcUFBJzOzjeOBGnDExwofH+IgAMhAYcAAGqnKY+GbAiL-QFoo6nc7jCAiFRkinUviaMQqADkGKFOk0XC+q2Fop0+kuYK+50OxmMGPZSy5gpFpzFqUw8vc2OxuOgAFkKPJ5AJiTyqTTfsp6bTlEyFgyfKDwZCoP9Ee4nCrVWq2YsJtzyfb+SYZbrxZ8Id8xHpY3wxYbg1clVALVabTs+OJU3qE3dVmt3MYXu5zvjCbbI3yBRXTVAABIQY7yYke10F5lB9VhzkdfXa2UZxWJ86560QYl5ZOvd6cACqjEUNwoFPEmlXLqgx0YIBU80QAAVjsRjgBbMjURQiAAUMIoxEUwFrmgAdL-SB-zlXABKBADCPEAWw2ExmDEHgwAmXtfX7A53Awc4VHHOMdAVJBAI3Lcd0wtN4zEGC4ImSVE3LCsXgwg8vWzP0kSCVEAhXLYC34K8AEEeGAZgb2OfjGBEdwADkD0YHgbwAI2odQakdJDdgOKAhxQF4FOMfclPA08FlPHAB1Q2syPgzkl3cXDlL4LjiF4-jBOEkQxM0Dsux7PQ93w7dvjyVc9BolRV2FARGHoYAbjFA8JO6VEmnYqAAGUMkQf47IcgShOYESMDWKACGSm5mH4eQoDkzNgysHRWySlA0s4vgeL4rLnKQfLCqS4rSvK6BKpSawAlqgAmBZ0qa+yWqcnKRGGjrCC6kq+DKiqqusdb1GiIaoKSgBmMbGuaxzspE3b5qKpaVr6yJBvUW6tpqnaABYDt2DKppOkQnvOxaeoqga7sB+7Ns2mqgA" target="_blank">
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAQlC8UCMUA+UAMBuAUAejyjACcJhgBLCYgWgoHMA7Ae1J1EigCUBXAGwhIkGADwAVKBAAewCIwAmAZygBtGABpYmmAF0AfAhxQoE6bIXKVSTdeQ6oAfkxQAXEZOSZcpatu2M9k4obsamXha+mhg2gciu7mHmPlZRUbEY8aGeSZbRyDGOcSEeZt65NmmFwQnZZap5eUix1VmlESoNlU4ZxYwQAG7UuOzg0LwC4rXtGlqw+gjc-ILC4nrDHNAAwhB8fAsA3u79AIZ8LrC4xsQMABbADufbu7gAvuuj3LfAk20+T3wGRCJOr7KDXeh3c4URgAM2o3CgL0KXFcUFBJzOzjeOBGnDExwofH+IgAMhAYcAAGqnKY+GbAiL-QFoo6nc7jCAiFRkinUviaMQqADkGKFOk0XC+q2Fop0+kuYK+50OxmMGPZSy5gpFpzFqUw8vc2OxuOgAFkKPJ5AJiTyqTTfsp6bTlEyFgyfKDwZCoP9Ee4nCrVWq2YsJtzyfb+SYZbrxZ8Id8xHpY3wxYbg1clVALVabTs+OJU3qE3dVmt3MYXu5zvjCbbI3yBRXTVAABIQY7yYke10F5lB9VhzkdfXa2UZxWJ86560QYl5ZOvd6cACqjEUNwoFPEmlXLqgx0YIBU80QAAVjsRjgBbMjURQiAAUMIoxEUwFrmgAdL-SB-zlXABKBADCPEAWw2ExmDEHgwAmXtfX7A53Awc4VHHOMdAVJBAI3Lcd0wtN4zEGC4ImSVE3LCsXgwg8vWzP0kSCVEAhXLYC34K8AEEeGAZgb2OfjGBEdwADkD0YHgbwAI2odQakdJDdgOKAhxQF4FOMfclPA08FlPHAB1Q2syPgzkl3cXDlL4LjiF4-jBOEkQxM0Dsux7PQ93w7dvjyVc9BolRV2FARGHoYAbjFA8JO6VEmmGAgoAAUSkSAAGNZHkVsAGUMkQf47IcgShOYESMDWKAkpym5mH4eQoDkzNmuMKwdFylACs4vgeL4krnKQSrqtq+rGugFrVRSawAlygAmBZCp6+y+qcsqRFmobCBquq+AapqJqm9RpvUGaoJygBmBbut6xzSpE87NqgbbRv2zNDuiY7olOj4coAFiu3YipWu6RF+x7nt2sa3usGGjrhr6TpO9qzoAVgB2yluK1aRJR8GRsh173sRj7idJ77OBygA2dGgdu5zKbxna9ugQ7PrhtmEa+9qgA" target="_blank">
   Check out the answer.
 </a>
   
