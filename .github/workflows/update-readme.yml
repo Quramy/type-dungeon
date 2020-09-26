@@ -26,8 +26,8 @@ jobs:
     - run: cp dist/README.md ./
     - name: Commit and push
       run: |
-        git config --global user.email "workflow@example.com"
-        git config --global user.name "workflow user"
+        git config --global user.email "yosuke.kurami@gmai.com"
+        git config --global user.name "Quramy"
         git add README.md
         git commit -m 'update README.md' && git push ${REPO} master || true
       env:
