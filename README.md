@@ -26,7 +26,7 @@ TypeScript code exercise.
 
 Difficulty: :space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0AMBSBlAeQDkAZASwGtFt0BPWRAOlAEllQAnRWbgZ0QA7ZH3qNQkAGagAbgEN4AV0Si8RYk1hzOAgBQBKWt2SLOgvkwBQyBmgIkK1UAF5QiwZUGQA7oIDclpYAxpDmHDIAjABcoPZkVGiuAN4AvgEhYbIATDFxjomgANoAuumhfOEAzLnq+S6ggorw8GWZMgAsNQ4J9UmWoKCS8HIA5jGSCgIANP0NctCIMQDkgvOISzMDjdAxEQAMe5ug2pwxhUmgGJAji6BLVzdLoCnFR5CwyOShAAra8zGNZozNKBECgAAqWEGkGaPnIghGoAASgAJfCiIJyQQNSAcABGaAEnHICnIAC9EAATdCQWLqYLlcIAVi68ScrgMLgAfKAIn5QGC+FcmtSCaBEJxOJBOAy2gA2Vl1ZKDQQxTnOHkRZ78wXC+CitASqUyoA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0AMBSBlAeQDkAZASwGtFt0BPWRAOlAEllQAnRWbgZ0QA7ZH3qNQkAGagAbgEN4AV0Si8RYk1hzOAgBQBKWt2SLOgvkwBQyBmgIkK1UAF5QiwZUGQA7oIDclpYAxpDmHDIAjABcoPZkVGiuAN4AvgEhYbIATDFxjomgANoAuumhfOEAzLnq+S6ggorw8GWZMgAsNQ4J9UmWoKCS8HIA5jGSCgIANP0NctCIMQBEgvOISzMDjdAxEQAMe5ug2pwxhUmgGJAji6BLVzdLoCnFR5CwyOShAAra8zGNZozNKBECgAAqWEGkGaPnIghGoAASgAJfCiIJyQQNSAcABGaAEnHICnIAC9EAATdCQWLqYLlcIAVi68ScrgMLgAfKAIn5QGC+FcmtSCaBEJxOJBOAy2gA2Vl1ZKDQQxTnOHkRZ78wXC+CitASqUyoA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Complete the `JSONLike` type. It represents type of values `JSON.parse()` returns.
@@ -37,9 +37,9 @@ const v2: JSONLike = [];
 const v3: JSONLike = null;
 const v4: JSONLike = {
   flag: false,
-  name: 'name',
+  name: "name",
   num: 100,
-  arr: [{ hoge: 'hoge' }],
+  arr: [{ hoge: "hoge" }],
   optionParam: null,
 };
 
@@ -48,7 +48,7 @@ const v5: JSONLike = () => 1; // should be error
 const v6: JSONLike = { fn: () => 1 }; // should be error
 ```
 
-<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBACgTgSwLYOAgbtAvFAdgVwBtCoAfKAIwHsrCIBDXMqAZ2EVwHNmCkKI4AbgBQw0JCgApAMoB5AHIAZBAGtswqMwDeGzXoDaakAC5W7BFwC6pmQuVqReqAF9d5W0tUR9lt7EQoaJgiwgDGVLhsUOgAjDZynmpQOFrOIuGRwNEATPF2XslQPukRUegAzHmJ2HhEhCWZ0QAsVfY1OpoAZoT0nKad9IQsEAA0urj0SBCmAOQTUzNjmrymMQAMa0tQ9HBwpvpaUAAWVJzTUDMnZzMulltUYGgRMDuTpgTEY2miAPQ-UAAVI7QTq0QhUADuFm4ACUABLSFhQUKMPBULL8VgCBCDBAALwgABMoMAqFIEmFSll0ABWVoFHAACgAlMkAHxQGKCKB-VgnIjEzECOBUOCUxroABs9KSKSgnVwphZ7M5Lm5vJY-MIgugwtFwiAA" target="_blank">
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBACgTgSwLYOAgbtAvFAdgVwBtCoAfKAIwHsrCIBDXMqAZ2EVwHNmCkKI4AbgBQw0JCgApAMoB5AHIAZBAGtswqMwDeGzXoDaakAC5W7BFwC6pmQuVqReqAF9d5W0tUR9lt7EQoaJgiwgDGVLhsUOgAjDZynmpQOFrOIuGRwNEATPF2XslQPukRUegAzHmJ2HhEhCWZ0QAsVfY1OpoAZoT0nKad9IQsEAA0urj0SBCmAEQTUzNjmrymMQAMa0tQ9HBwpvpaUAAWVJzTUDMnZzMulltUYGgRMDuTpgTEY2miAPQ-UAAVI7QTq0QhUADuFm4ACUABLSFhQUKMPBULL8VgCBCDBAALwgABMoMAqFIEmFSll0ABWVoFHAACgAlMkAHxQGKCKB-VgnIjEzECOBUOCUxroABs9KSKSgnVwphZ7M5Lm5vJY-MIgugwtFwiAA" target="_blank">
   Check out the answer.
 </a>
   
@@ -173,7 +173,7 @@ const value: number = bound(100);
 
 Difficulty: :space_invader::space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRoAGASAIgSwGb7qjICesayko0AhsgMYAWJTa+k88kA7rgHYBzUA0j8AJrmS4xAOgBQIUADEAmgEkANCu48S5NE1oBnVmmO1oafpbQBXafCml9FBWQqgcBfAB4AgtoAQgB8oAC8oLT8pADc8vIeaAAKAE6QsKaRAN7yoKC44gBcoPx20ABGiKnx+dLISCXGyKkCgrUktILGTS1tANoAuvEAvvHyovzNoOKI+LR28MhpGVmguXVdPaBDmvJjCUmgAEqIAI52uKmI4iuZEV54hL53xtpJkPgzcwtLryHjSbTWDpTIARhKpwuVxurweGwKxVAYIADCi9nUpI1QAByaAuWCQZo4vYHCZiYGg4wAJkh50u11uVPheURJVR6NZ9WxeIJROQJK5WxK-RxyGMOMGpPGSgAAuKALSIAAeFAYyCVqXSqXJU2QoBBqwAzHToYy4TlWYV2WiMZ1uiKpfsZWB5cYlarEOrNdrdZTVgAWU0M2HMy2YhqIEq8g38wUHIA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRoAGASAIgSwGb7qjICesayko0AhsgMYAWJTa+k88kA7rgHYBzUA0j8AJrmS4xAOgBQIUADEAmgEkANCu48S5NE1oBnVmmO1oafpbQBXafCml9FBWQqgcBfAB4AgtoAQgB8oAC8oLT8pADc8vIeaAAKAE6QsKaRAN7yoKC44gBcoPx20ABGiKnx+dLISCXGyKkCgrUktILGTS1tANoAuvEAvvHyovzNoOKI+LR28MhpGVmguXVdPaBDmvJjCUmgAEqIAI52uKmI4iuZEV54hL53xtpJkPgzcwtLryHjSbTWDpTIARhKpwuVxurweGwKxVAYIADCi9nUpI1QAAiaAuWCQZo4vYHCZiYGg4wAJkh50u11uVPheURJVR6NZ9WxeIJROQJK5WxK-RxyGMOMGpPGSgAAuKALSIAAeFAYyCVqXSqXJU2QoBBqwAzHToYy4TlWYV2WiMZ1uiKpfsZWB5cYlarEOrNdrdZTVgAWU0M2HMy2YhqIEq8g38wUHIA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Complete `$Diff` type to match the following condition.
@@ -194,13 +194,13 @@ type RequiredProps = $Diff<Props, typeof defaultProps>;
 
 const props1: RequiredProps = {
   id: 100,
-  title: 'my post',
+  title: "my post",
 };
 
 const props2: RequiredProps = {
   id: 100,
-  title: 'my post',
-  tags: ['ts'],
+  title: "my post",
+  tags: ["ts"],
 };
 
 // @ts-expect-error
@@ -211,11 +211,11 @@ const props3: RequiredProps = {
 
 // @ts-expect-error
 const props4: RequiredProps = {
-  title: 'my post',
+  title: "my post",
 };
 ```
 
-<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAJAIgSwGZIDwEEA0UBCA+KAXigG8oBtABSgQDsoBRAD2ACcBDAY2FQGsIQAeyRQsUfkJH4AugGoA-AC5RVaVAC+UAGQAoKKQrU6jJpwA2AVwAmEPgOGjsEhzIC0SlZTXqA3Dp2gkFCUrIJgAM5EpHo0Vsq0FgC2AEYQrH76wAjAZhDK4Wx0AOYZUMDsReH5hbRF5NJ+vv6cgrQFUDZI7BZmwCFhkcQkMeWVyvWYOk0B4NAAShAAjhYIrBBW-RFR8Mhom+HYgRAOnd29+3h+Oi1twFBgoREAjMoLy6vr+1HD+ghxUE8AAyAyaZbK5ZQAckSIHuggKkMm0xu7QeAwATK8lis1htHoNor9-kCQSNwXkoNDYWB4cBESMKlUKJDgOFIdIkVcAPRcqAAAVZrggTEg3CFrFCrGurVR+IAzFj3rivkMYn9lCTQWVGeMOVNubyBeEhSKIGK0pLpbd7viACyKnGffHfMk5ClUuEIzk6IA" target="_blank">
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAJAIgSwGZIDwEEA0UBCA+KAXigG8oBtABSgQDsoBRAD2ACcBDAY2FQGsIQAeyRQsUfkJH4AugGoA-AC5RVaVAC+UAGQAoKKQrU6jJpwA2AVwAmEPgOGjsEhzIC0SlZTXqA3Dp2gkFCUrIJgAM5EpHo0Vsq0FgC2AEYQrH76wAjAZhDK4Wx0AOYZUMDsReH5hbRF5NJ+vv6cgrQFUDZI7BZmwCFhkcQkMeWVyvWYOk0B4NAAShAAjhYIrBBW-RFR8Mhom+HYgRAOnd29+3h+Oi1twFBgoREAjMoLy6vr+1HD+ghxUE8AAyAyaZbK5ZQAIkSIHuggKkMm0xu7QeAwATK8lis1htHoNor9-kCQSNwXkoNDYWB4cBESMKlUKJDgOFIdIkVcAPRcqAAAVZrggTEg3CFrFCrGurVR+IAzFj3rivkMYn9lCTQWVGeMOVNubyBeEhSKIGK0pLpbd7viACyKnGffHfMk5ClUuEIzk6IA" target="_blank">
   Check out the answer.
 </a>
   
@@ -223,7 +223,7 @@ const props4: RequiredProps = {
 
 Difficulty: :space_invader::space_invader::space_invader:
 
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOboCesaABuIvgK7wCGATgILPIxt9SAHgByAPjqhmAZzKVMxaaDoAlVoknIaiAHQAoEKAAqWZWqSbtoDolg3piUsiVtr60JGwfSiALQATYmhHWUhSNnhQAGMmeFZOUDZeflIAGkSdAGsdNh1QAHU8bA42aGjIfzQAIgBGGoAGKv1DFUQ2f1AMZGRYaQAuEEcdEkziWkDcyA5yYBHiYHNEAH06+tBiLypIZlBCNidQaCm0SuQ2Ynhm4AMwBlj47mToATDRCVBpDG34DvJiADc0Jg0CJfJhQORHIgSshiGEPmdULssKQEZxYRRlABtGoAXToV1AADEpqBEAAPUoIRDpO4sdiPPjPQRCGrvOyQf7ESpKOg41I1VL1fGgABGiCiSQc2PqQoFIshPhhiF5NTo6SxssFwtA-kgKuUavS+w6fO1QpFeoNdHqBL0WlooAAQqAALygGqgAA+oHqAG4bqA7ChYdDfMRyKRjvarItVkIjGTyahSP4lFinelM87cWI3XpQMYkym06B+R70njQAB+X2gPoFosUkvpwUV324mse+uNxPNxyl8uyj2d2uehuFvvJget9LDnW1tYTpvT1Pp4dtqtjnuT4szssbuej7vLqctg9zyvH8e9vdri++o9dpeNnyAjgBmOOxYJu+D7MAbmbqgHGDQJmIn4OmgjD0pwPBMi8wgiH+SikMw0DihwebuswpCZFGhCkJ+hgAKLkrQUSoP4X5oAAyms7owXEDLwfwLL1BBoCGLRXysB04qFoJQlCTiuI0aAtGeox9wsU8iGspx3G8T8YpoMJwn8tqYlQRJABMwFMQ8rHMq8umKWAPHfPxanqWWgr2XKwribRADMBkyXBcksi55kScp1m2ZpcrmrKTk6bRAAs7mwYybGvBFvmWXxqkaQ5aWOY52lWLRACs0XMZ5CEsjliX+SlhZBaFwUZVVYXZQAbPlRlea89WlVZKVBSFAo9bVNViUAA" target="_blank">TypeScript playground</a> !
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOboCesaABuIvgK7wCGATgILPIxt9SAHgByAPjqhmAZzKVMxaaDoAlVoknIaiAHQAoEKAAqWZWqSbtoDolg3piUsiVtr60JGwfSiALQATYmhHWUhSNnhQAGMmeFZOUDZeflIAGkSdAGsdNh1QAHU8bA42aGjIfzQAIgBGGoAGKv1DFUQ2f1AMZGRYaQAuEEcdEkziWkDcyA5yYBHiYHNEAH06+tBiLypIZlBCNidQaCm0SuQ2Ynhm4AMwBlj47mToATDRCVBpDG34DvJiADc0Jg0CJfJhQORHIgSshiGEPmdULssKQEZxYRRlABtGoAXToV1AADEpqBEAAPUoIRDpO4sdiPPjPQRCGrvOyQf7ESpKOg41I1VL1fGgABGiCiSQc2PqQoFIshPhhiF5NTo6SxssFwtA-kgKuUavS+w6fO1QpFeoNdHqBL0WlooAAQqAALygGqgAA+oHqAG4bqA7ChYdDfMRyKRjvarItVkIjGTyahSP4lFinelM87cWI3XpQMYkym06B+R70njQAB+X2gPoFosUkvpwUV324mse+uNxPNxyl8uyj2d2uehuFvvJget9LDnW1tYTpvT1Pp4dtqtjnuT4szssbuej7vLqctg9zyvH8e9vdri++o9dpeNnyAjgBmOOxYJu+D7MAbmbqgHGDQJmIn4OmgjD0pwPBMi8wgiH+SikMw0DihwebuswpCZFGhCkJ+hgAKLkrQUSoP4eh6FEYTSMgHz1H0ED3Ay8H8Cy9TYYWvF8XxOKdoYwbdMQYYRlGNi0fRjHSDULEwXE7FPIhrI8fx-H8tqQlgCJoYcOGkbRnRpAMR8ABMClsXBKksuZ6kaWWgrOXKOrCTYoniUZUkmWZ0gAMxWbBjKca8-kOQJLlaq5FqgO5IZiQZEnGTJHwACxBUpNkISyaURU5AqFVFMVubpHn6YZkmINJpmyQArJlDwccyrx1Q5WklYVsrda5OlBuViWVSltUfAAbI1yk5a8o08R15rRfNnWlf1CVeVVehAA" target="_blank">TypeScript playground</a> !
 
 ```typescript
 // Complete the following type `CellularAutomaton<N>` using this `Rule` type.
@@ -250,16 +250,17 @@ type Rule<T extends [B, B, B]> = Rule110<T>;
 type CellularAutomaton<N extends number> = unknown;
 
 // Expected
-type S0 = CellularAutomaton<0>; // Should be             [1]
-type S1 = CellularAutomaton<1>; // Should be           [1,1,0]
-type S2 = CellularAutomaton<2>; // Should be         [1,1,1,0,0]
-type S3 = CellularAutomaton<3>; // Should be       [1,1,0,1,0,0,0]
-type S4 = CellularAutomaton<4>; // Should be     [1,1,1,1,1,0,0,0,0]
-type S5 = CellularAutomaton<5>; // Should be   [1,1,0,0,0,1,0,0,0,0,0]
-type S6 = CellularAutomaton<6>; // Should be [1,1,1,0,0,1,1,0,0,0,0,0,0]
+
+const s0: CellularAutomaton<0> =             [1] // prettier-ignore
+const s1: CellularAutomaton<1> =           [1,1,0] // prettier-ignore
+const s2: CellularAutomaton<2> =         [1,1,1,0,0] // prettier-ignore
+const s3: CellularAutomaton<3> =       [1,1,0,1,0,0,0] // prettier-ignore
+const s4: CellularAutomaton<4> =     [1,1,1,1,1,0,0,0,0] // prettier-ignore
+const s5: CellularAutomaton<5> =   [1,1,0,0,0,1,0,0,0,0,0] // prettier-ignore
+const s6: CellularAutomaton<6> = [1,1,1,0,0,1,1,0,0,0,0,0,0] // prettier-ignore
 ```
 
-<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAQlC8UCMUA+UAMBuAUAejyjACcJhgBLCYgWgoHMA7Ae1J1EigCUBXAGwhIkGADwAVKBAAewCIwAmAZygBtGABpYmmAF0AfAhxQoE6bIXKVSTdeQ6oAfkxQAXEZOSZcpatu2M9k4obsamXha+mhg2gciu7mHmPlZRUbEY8aGeSZbRyDGOcSEeZt65NmmFwQnZZap5eUix1VmlESoNlU4ZxYwQAG7UuOzg0LwC4rXtGlqw+gjc-ILC4nrDHNAAwhB8fAsA3u79AIZ8LrC4xsQMABbADufbu7gAvuuj3LfAk20+T3wGRCJOr7KDXeh3c4URgAM2o3CgL0KXFcUFBJzOzjeOBGnDExwofH+IgAMhAYcAAGqnKY+GbAiL-QFoo6nc7jCAiFRkinUviaMQqADkGKFOk0XC+q2Fop0+kuYK+50OxmMGPZSy5gpFpzFqUw8vc2OxuOgAFkKPJ5AJiTyqTTfsp6bTlEyFgyfKDwZCoP9Ee4nCrVWq2YsJtzyfb+SYZbrxZ8Id8xHpY3wxYbg1clVALVabTs+OJU3qE3dVmt3MYXu5zvjCbbI3yBRXTVAABIQY7yYke10F5lB9VhzkdfXa2UZxWJ86560QYl5ZOvd6cACqjEUNwoFPEmlXLqgx0YIBU80QAAVjsRjgBbMjURQiAAUMIoxEUwFrmgAdL-SB-zlXABKBADCPEAWw2ExmDEHgwAmXtfX7A53Awc4VHHOMdAVJBAI3Lcd0wtN4zEGC4ImSVE3LCsXgwg8vWzP0kSCVEAhXLYC34K8AEEeGAZgb2OfjGBEdwADkD0YHgbwAI2odQakdJDdgOKAhxQF4FOMfclPA08FlPHAB1Q2syPgzkl3cXDlL4LjiF4-jBOEkQxM0Dsux7PQ93w7dvjyVc9BolRV2FARGHoYAbjFA8JO6VEmmGAgoAAUSkSAAGNZHkVsAGUMkQf47IcgShOYESMDWKAkpym5mH4eQoDkzNmuMKwdFylACs4vgeL4krnKQSrqtq+rGugFrVRSawAlygAmBZCp6+y+qcsqRFmobCBquq+AapqJqm9RpvUGaoJygBmBbut6xzSpE87NqgbbRv2zNDuiY7olOj4coAFiu3YipWu6RF+x7nt2sa3usGGjrhr6TpO9qzoAVgB2yluK1aRJR8GRsh173sRj7idJ77OBygA2dGgdu5zKbxna9ugQ7PrhtmEa+9qgA" target="_blank">
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAQlC8UCMUA+UAMBuAUAejyjACcJhgBLCYgWgoHMA7Ae1J1EigCUBXAGwhIkGADwAVKBAAewCIwAmAZygBtGABpYmmAF0AfAhxQoE6bIXKVSTdeQ6oAfkxQAXEZOSZcpatu2M9k4obsamXha+mhg2gciu7mHmPlZRUbEY8aGeSZbRyDGOcSEeZt65NmmFwQnZZap5eUix1VmlESoNlU4ZxYwQAG7UuOzg0LwC4rXtGlqw+gjc-ILC4nrDHNAAwhB8fAsA3u79AIZ8LrC4xsQMABbADufbu7gAvuuj3LfAk20+T3wGRCJOr7KDXeh3c4URgAM2o3CgL0KXFcUFBJzOzjeOBGnDExwofH+IgAMhAYcAAGqnKY+GbAiL-QFoo6nc7jCAiFRkinUviaMQqABEGKFOk0XC+q2Fop0+kuYK+50OxmMGPZSy5gpFpzFqUw8vc2OxuOgAFkKPJ5AJiTyqTTfsp6bTlEyFgyfKDwZCoP9Ee4nCrVWq2YsJtzyfb+SYZbrxZ8Id8xHpY3wxYbg1clVALVabTs+OJU3qE3dVmt3MYXu5zvjCbbI3yBRXTVAABIQY7yYke10F5lB9VhzkdfXa2UZxWJ86560QYl5ZOvd6cACqjEUNwoFPEmlXLqgx0YIBU80QAAVjsRjgBbMjURQiAAUMIoxEUwFrmgAdL-SB-zlXABKBADCPEAWw2ExmDEHgwAmXtfX7A53Awc4VHHOMdAVJBAI3Lcd0wtN4zEGC4ImSVE3LCsXgwg8vWzP0kSCVEAhXLYC34K8AEEeGAZgb2OfjGBEdwADkD0YHgbwAI2odQakdJDdgOKAhxQF4FOMfclPA08FlPHAB1Q2syPgzkl3cXDlL4LjiF4-jBOEkQxM0Dsux7PQ93w7dvjyVc9BolRV2FARGHoYAbjFA8JO6VEmmGAgoAAUSkSAAGNZHkHF0uYDdgCgRQ0JsuyHIEoS8pEDBmUzWrfHsJKSDIShqDoJhWAgHBcvywrrP+Uq+PK5ykBqurjBSawAigRrSHIKhaAYFg2G6j9CoAJkeTi+B4wanMqtbRtqib1Em9Qppm5r5rapbOpWgrFAAZk23YBsciqRIew7VWO6JTuic7CCaubWsWjqury1bFAAFme2ztvs3b3pEKGvuO6x0bOzH-oawHZpahb2uWiH7oAVlh16hsqknRp+rGTrp-6zpxog8au0GiZ6xQADZyfhsq9pErnmTRumMcZ8Wmem3HLpBwnOqAA" target="_blank">
   Check out the answer.
 </a>
   
@@ -292,7 +293,7 @@ const y:
   | { readonly value: 3 } = valueABC;
 ```
 
-<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAqgdgSwPZwDwDUA0soQB7ARwAmAzlAIZwgDaAugHxQC8UA3gFBRQAMAXFHQBuLlACMAgBSSAdHIBuAmAEoWTKiFX5CJcpIAWECsQEI4AMwgAnKAAkjxbHJnAKCADamL1qABU37qrM6tSi3AD8sIgoGFAAPnYO2P4eDGFQAnAQ8tYiAL40MDQA5O5EAObA+sV0uAREZLxQkTwZ4nQiHKCQUABKVMRIALYsUKi+2DB1Oo0a9AyS5ghWpMACE1DOVhBDcFRrsEFM8MhoGzAMncQQAMbuFNtQNyirUFYDwwL9JMOdz3CvCijNhQeQUdwAVwgAjEUDylHI-1WIiRwCgACNgaDwVCBAAmOEIp4vYAoklPLFgyHQqAAZkJFERJM6AHoWVAAKJ4SA3QgmDhsvyGKAAA3ePyGIreEGAEKscCg3WgpH0SAh7mIGOgjNICHKe3RZUV+gQ5CVlDgcCQrmApxkHA4qOx1IAggAhUbiwZDSQUbDo5RkgFoqlQ90AYU9Hx9fox2BugYdTrwAhB22MKHcIGduPEhISaYcmezoZpBPhrFL7qDrxAfFEBelGbgWZzNNheQb7CbgxbJZxZbhXcLzdbpYE9IrbYjIiAA" target="_blank">
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAqgdgSwPZwDwDUA0soQB7ARwAmAzlAIZwgDaAugHxQC8UA3gFBRQAMAXFHQBuLlACMAgBSSAdHIBuAmAEoWTKiFX5CJcpIAWECsQEI4AMwgAnKAAkjxbHJnAKCADamL1qABU37qrM6tSi3AD8sIgoGFAAPnYO2P4eDGFQAnAQ8tYiAL40MDQARO5EAObA+sV0uAREZLxQkTwZ4nQiHKCQUABKVMRIALYsUKi+2DB1Oo0a9AyS5ghWpMACE1DOVhBDcFRrsEFM8MhoGzAMncQQAMbuFNtQNyirUFYDwwL9JMOdz3CvCijNhQeQUdwAVwgAjEUDylHI-1WIiRwCgACNgaDwVCBAAmOEIp4vYAoklPLFgyHQqAAZkJFERJM6AHoWVAAKJ4SA3QgmDhsvyGKAAA3ePyGIreEGAEKscCg3WgpH0SAh7mIGOgjNICHKe3RZUV+gQ5CVlDgcCQrmApxkHA4qOx1IAggAhUbiwZDSQUbDo5RkgFoqlQ90AYU9Hx9fox2BugYdTrwAhB22MKHcIGduPEhISaYcmezoZpBPhrFL7qDrxAfFEBelGbgWZzNNheQb7CbgxbJZxZbhXcLzdbpYE9IrbYjIiAA" target="_blank">
   Check out the answer.
 </a>
   
