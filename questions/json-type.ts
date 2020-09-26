@@ -18,9 +18,12 @@ type Primitive = null | boolean | string | number;
  * type JSONLike = unknown
  * ```
  */
-type JSONLike = {
-  [key: string]: JSONLike,
-} | JSONLike[] | Primitive;
+type JSONLike =
+  | {
+      [key: string]: JSONLike;
+    }
+  | JSONLike[]
+  | Primitive;
 
 const v1: JSONLike = {};
 const v2: JSONLike = [];

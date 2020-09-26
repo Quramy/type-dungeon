@@ -1,4 +1,10 @@
-import { TSDocParser, TSDocConfiguration, TSDocTagSyntaxKind, Standardization, TSDocTagDefinition } from "@microsoft/tsdoc";
+import {
+  TSDocParser,
+  TSDocConfiguration,
+  TSDocTagSyntaxKind,
+  Standardization,
+  TSDocTagDefinition,
+} from "@microsoft/tsdoc";
 
 export function createParser() {
   const conf = new TSDocConfiguration();
@@ -18,7 +24,12 @@ export function createParser() {
     syntaxKind: TSDocTagSyntaxKind.ModifierTag,
     tagName: "@remove",
   });
-  conf.addTagDefinitions([typeQuestionTagDef, difficultyTagDef, replaceToTagDef, removeTagDef]);
+  conf.addTagDefinitions([
+    typeQuestionTagDef,
+    difficultyTagDef,
+    replaceToTagDef,
+    removeTagDef,
+  ]);
   const parser = new TSDocParser(conf);
   return parser;
 }

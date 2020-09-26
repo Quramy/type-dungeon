@@ -1,4 +1,4 @@
-import 'type-dungeon';
+import "type-dungeon";
 
 /**
  * @typeQuestion
@@ -45,9 +45,9 @@ type Right<T extends Cell> = T extends { right: infer R } ? R : { val: 0 };
  * @remove
  */
 type TailCell<LeftVal extends B, T extends Cell> = {
-  val: Rule<[LeftVal, T['val'], Right<T>['val']]>;
+  val: Rule<[LeftVal, T["val"], Right<T>["val"]]>;
   right: {
-    val: Rule<[T['val'], 0, 0]>;
+    val: Rule<[T["val"], 0, 0]>;
   };
 };
 /**
@@ -55,15 +55,15 @@ type TailCell<LeftVal extends B, T extends Cell> = {
  */
 type MiddleCell<LeftVal extends B, T extends Cell> = T extends { right: Cell }
   ? {
-      val: Rule<[LeftVal, T['val'], Right<T>['val']]>;
-      right: MiddleCell<T['val'], Right<T>>;
+      val: Rule<[LeftVal, T["val"], Right<T>["val"]]>;
+      right: MiddleCell<T["val"], Right<T>>;
     }
   : TailCell<LeftVal, T>;
 /**
  * @remove
  */
 type HeadCell<T extends Cell> = {
-  val: Rule<[0, 0, T['val']]>;
+  val: Rule<[0, 0, T["val"]]>;
   right: MiddleCell<0, T>;
 };
 
@@ -76,8 +76,8 @@ type Unshift<T, U extends any[]> = Parameters<(first: T, ...rest: U) => any>;
  * @remove
  */
 type ToTuple<T extends Cell> = {
-  0: [T['val']];
-  1: Unshift<T['val'], ToTuple<Right<T>>>;
+  0: [T["val"]];
+  1: Unshift<T["val"], ToTuple<Right<T>>>;
 }[T extends { right: Cell } ? 1 : 0];
 
 /**
@@ -93,13 +93,14 @@ type CellularAutomaton<
 > = {
   0: ToTuple<T>;
   1: CellularAutomaton<N, HeadCell<T>, Unshift<0, U>>;
-}[U['length'] extends N ? 0 : 1];
+}[U["length"] extends N ? 0 : 1];
 
 // Expected
-type S0 = CellularAutomaton<0>; // Should be             [1]
-type S1 = CellularAutomaton<1>; // Should be           [1,1,0]
-type S2 = CellularAutomaton<2>; // Should be         [1,1,1,0,0]
-type S3 = CellularAutomaton<3>; // Should be       [1,1,0,1,0,0,0]
-type S4 = CellularAutomaton<4>; // Should be     [1,1,1,1,1,0,0,0,0]
-type S5 = CellularAutomaton<5>; // Should be   [1,1,0,0,0,1,0,0,0,0,0]
-type S6 = CellularAutomaton<6>; // Should be [1,1,1,0,0,1,1,0,0,0,0,0,0]
+
+const s0: CellularAutomaton<0> =             [1] // prettier-ignore
+const s1: CellularAutomaton<1> =           [1,1,0] // prettier-ignore
+const s2: CellularAutomaton<2> =         [1,1,1,0,0] // prettier-ignore
+const s3: CellularAutomaton<3> =       [1,1,0,1,0,0,0] // prettier-ignore
+const s4: CellularAutomaton<4> =     [1,1,1,1,1,0,0,0,0] // prettier-ignore
+const s5: CellularAutomaton<5> =   [1,1,0,0,0,1,0,0,0,0,0] // prettier-ignore
+const s6: CellularAutomaton<6> = [1,1,1,0,0,1,1,0,0,0,0,0,0] // prettier-ignore
