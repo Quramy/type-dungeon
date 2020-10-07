@@ -14,6 +14,7 @@ TypeScript code exercise.
   - [combine-latest](#combine-latest)
   - [curry](#curry)
   - [diff](#diff)
+  - [union-to-intersection](#union-to-intersection)
   - [cellular-automaton](#cellular-automaton)
   - [randomize](#randomize)
 - [How to create new exercise](#how-to-create-new-exercise)
@@ -238,6 +239,57 @@ const props4: RequiredProps = {
 ```
 
 <a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAJAIgSwGZIDwEEA0UBCA+KAXigG8oBtABSgQDsoBRAD2ACcBDAY2FQGsIQAeyRQsUfkJH4AugGoA-AC5RVaVAC+UAGQAoKKQrU6jJpwA2AVwAmEPgOGjsEhzIC0SlZTXqA3Dp2gkFCUrIJgAM5EpHo0Vsq0FgC2AEYQrH76wAjAZhDK4Wx0AOYZUMDsReH5hbRF5NJ+vv6cgrQFUDZI7BZmwCFhkcQkMeWVyvWYOk0B4NAAShAAjhYIrBBW-RFR8Mhom+HYgRAOnd29+3h+Oi1twFBgoREAjMoLy6vr+1HD+ghxUE8AAyAyaZbK5ZQAIkSIHuggKkMm0xu7QeAwATK8lis1htHoNor9-kCQSNwXkoNDYWB4cBESMKlUKJDgOFIdIkVcAPRcqAAAVZrggTEg3CFrFCrGurVR+IAzFj3rivkMYn9lCTQWVGeMOVNubyBeEhSKIGK0pLpbd7viACyKnGffHfMk5ClUuEIzk6IA" target="_blank">
+  Check out the answer.
+</a>
+  
+### union-to-intersection
+
+Difficulty: :space_invader::space_invader:
+
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0DNL3pAO4CWAdgOagAGAqgEwCSV6AnrGspKNAIbIDGGdFlC58RMpUQAPfolj9UAE1D9IpJcWTF1AOgBQIavSar1AN0QAnZAGdRVmKACupHaVbt0XMqiu3ERXdPRANkNjQTAB4AFQA+UABeF1IAa1IiUgBufX1wrxoAqyTQAG99UFBiJQAuUFtkK0kcytIeaEQ6hqaKFtAeck7QUmdoACNrHIBfHLyI0AAFSAaS8srqrsbmiuH2oe7tyrHIJRZNnvJp2fzIooB5KyWV5MLrUAAfReXkWaMAATsAFoZOxFMCrI4rPo1KQVtIAIx1aKvKwPJ7IBLJNZVWqgABEAAk7gBxACieIANDs2h06niMJBBpSdgMhnQAAxUma5f5AkGBZDgyHQ9RwuhIxhRFFo76Yso7Db4gBidzuzNaezpuEg6tAx1OWsgXH1LGZ3JFsOQoGkAGYJQwpfdHrLVgrcXiAEIAQQASrqaUM8WMeFZday6hyqUcTmd8cHiiazTkgA" target="_blank">TypeScript playground</a> !
+
+```typescript
+// Complete the following `U2I` type to match the following excepcted condition.
+// `U2I` converts from union type to intersection type.
+type U2I<T> = unknown;
+
+type User = {
+  id: string;
+  name: string;
+  age: number;
+};
+
+type Post = {
+  id: string;
+  name: string;
+  body: string;
+};
+
+type UserOrPost = User | Post;
+
+// @ts-expect-error
+const x1: U2I<UserOrPost> = {
+  id: "HOGE",
+  name: "hoge",
+  age: 20,
+};
+
+// @ts-expect-error
+const x2: U2I<UserOrPost> = {
+  id: "FOO",
+  name: "foo",
+  body: "foo body",
+};
+
+const x3: U2I<UserOrPost> = {
+  id: "BAR",
+  name: "bar",
+  age: 20,
+  body: "bar body",
+};
+```
+
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAqgTASQDwBUB8UC8UAUKoQAewEAdgCYDOUAhqSFAPy40BcUKAlFhnQ+6QgA3CACduREhWo4AUFFrsAlqQBmYqAGUANLO6Ze9eUy3GBwsQG5Zs0JFiUN2AN7Gl5dpWCiVAc2sKpDQAthCe3n4BtL5hUKQArsEARlayAL7WtuDQAAoA9l5YUK4K7uE+pP7GQaHlkcZJeeQgdZXWGTZ20DCOogDyovmF2D0aAD5QQ8CZAPQzUAACwJQAtESQAMbAa6KieaKyG3mkhYQAjOzwyKP9gwXAGC5uHlAARAASfQDiAKKvuoEQrFXgALPIxf7GGgxdhwAAMug6sjmi2Wa0Im22Yj2ByOJ2AUEIcEuiCQNwGU0exWe7FeADE+n1IYDam9VHk8syoI1mrT2XluU0QJCkXjTgBmEnXXoU+5UkpQMpvABCAEEAEpcmrApI0URc6GxeEAwW8t660Sm4WI6xAA" target="_blank">
   Check out the answer.
 </a>
   
