@@ -14,6 +14,7 @@ TypeScript code exercise.
   - [combine-latest](#combine-latest)
   - [curry](#curry)
   - [diff](#diff)
+  - [only-required-keys](#only-required-keys)
   - [union-to-intersection](#union-to-intersection)
   - [cellular-automaton](#cellular-automaton)
   - [randomize](#randomize)
@@ -239,6 +240,35 @@ const props4: RequiredProps = {
 ```
 
 <a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAJAIgSwGZIDwEEA0UBCA+KAXigG8oBtABSgQDsoBRAD2ACcBDAY2FQGsIQAeyRQsUfkJH4AugGoA-AC5RVaVAC+UAGQAoKKQrU6jJpwA2AVwAmEPgOGjsEhzIC0SlZTXqA3Dp2gkFCUrIJgAM5EpHo0Vsq0FgC2AEYQrH76wAjAZhDK4Wx0AOYZUMDsReH5hbRF5NJ+vv6cgrQFUDZI7BZmwCFhkcQkMeWVyvWYOk0B4NAAShAAjhYIrBBW-RFR8Mhom+HYgRAOnd29+3h+Oi1twFBgoREAjMoLy6vr+1HD+ghxUE8AAyAyaZbK5ZQAIkSIHuggKkMm0xu7QeAwATK8lis1htHoNor9-kCQSNwXkoNDYWB4cBESMKlUKJDgOFIdIkVcAPRcqAAAVZrggTEg3CFrFCrGurVR+IAzFj3rivkMYn9lCTQWVGeMOVNubyBeEhSKIGK0pLpbd7viACyKnGffHfMk5ClUuEIzk6IA" target="_blank">
+  Check out the answer.
+</a>
+  
+### only-required-keys
+
+Difficulty: :space_invader::space_invader:
+
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAECUFMAcBsEMDGlQBcAWLwAkDKoB7AMzU1CINlgIHcBLAOwHNQADKARwFc6AnSACYBpSAE8AzqzSjoKVAVABbeKkTpSKSAA9ZiVINDjIeugQYA6AFCoZWSNz6CREgDwAVAHygAvKADWYsSgbgDclpYgoACiOsb6AuE2sqAAqka8PqAA3pagoHQCAFygDFyKAEaQvGF5COKoAHLwipDF9byMTDXkfPVNLW2oHczdigUCsJD9kAD8g8NdlgC+YZaIZvWgAG7wsAXO4sWcPPzCYuIuaVUeANoAupk3AEQFTwA0oE91jc2Q759EXo-FpPO6rSIAAVQ4gAtNpdKg4bxeAQMgByMYCCZTX5o-LiUDwBiEaCoUwMXb+MT5YlXDJJSBrDaoGk7PZnCRHewnJznS7pW4PXzPTHY6agsJAA" target="_blank">TypeScript playground</a> !
+
+```typescript
+// Replace the RHS of the following `RequiredKeys` type to match the expected section.
+type RequiredKeys<T> = keyof T;
+
+// Expected
+
+type User = {
+  id: number;
+  lastName: string;
+  firstName: string;
+  middleName?: string;
+};
+
+const validKeys: RequiredKeys<User>[] = ["id", "lastName", "firstName"];
+
+// @ts-expect-error 'middleName' is an optional key in User type
+const invalidKeys: RequiredKeys<User>[] = ["middleName"];
+```
+
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAShCOBXAlgJwgEwNIRAZwB4AVAPigF4oBvAKCigG0AFKZAOygGtcB7AMyhEAugFoA-AC5qAXygQAHsAhsMeKE2QBjTsQA06smKhsIANwiooUpgG4a0htxD9BQuzQD0HqAFF5kTSUMGhpQSCgAVTwLCmo6VgwpNkQAWwAjCzt6ABsAQzxgADlclIgpAtR2AHMsqD40AuLS8uBKthr4lOQMDGyIJohJKArqu2l3TR42AqhTXOzunHwpOCQ0TCXCKIsSBiFYhgAibsP9Q7zGkohTqEP61EvSw7cQrygAAWA8EQUA4B-UKgeJYAORdHp9AYg1hqXIcHhgYDIKbzLi4VgcbaWMIQGiTabADFzBbYXB4FYIFDoUn4AhY3b7ShHcG9fpXZ52IA" target="_blank">
   Check out the answer.
 </a>
   
