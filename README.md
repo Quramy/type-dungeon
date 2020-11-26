@@ -10,7 +10,6 @@ TypeScript code exercise.
   - [array-to-union](#array-to-union)
   - [json-type](#json-type)
   - [to-strict](#to-strict)
-  - [awaited](#awaited)
   - [combine-latest](#combine-latest)
   - [curry](#curry)
   - [diff](#diff)
@@ -100,28 +99,6 @@ const age: number = strictObj.age; // typeof age should not be undefined / null
 ```
 
 <a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAysBOBLAxsAPAFQHxQLxQG8oBtABSkQDsoBrCEAewDMoMBdAWgH4AuVstlAC+AbgBQYgPSSoAUQAekVBAAmE0JFgMAthADyAIwBWEVBnDR8BMVCiUAhrt5QAzgioBzcbfseIzygBXbQMIeHFRCRVTABt7eGhkBko3V3dUQyM+OCRUNBgdfWNTYHNILHExJJTgKECXMIA5Rwg+NyRKDzw03OBMgDoHXREoaSgNCGY7FtcACwZAmJU7BlrQuspopipVUbtFmKrk1N9W-ZCw7vaUPuN+05GxianTuYWllbXoQM2IbcpdjIgjFDkA" target="_blank">
-  Check out the answer.
-</a>
-  
-### awaited
-
-Difficulty: :space_invader::space_invader:
-
-Play this with <a href="https://www.typescriptlang.org/play#code/PTAEFEBMEsBdVgCwKagE7QOaPoghgHaSgDO0kqsA9qALZ6wDGiCKoAZlQDZdUDu0AplDIAHgAdkjWMmKwAnpNCMqRONFUkAdACgFSgIJ88cWQB4AKgD5QAXlABXAgGsC-AgG4dexagAKAIx2oH5oVLTQJMhmJLAYQlZe+v4ATMGh4ZHRGRFRMXGCmFaJ3iAiElIykD5KAMpB9kYmVWaBiaBlJIhUDlzEAEaosfGYSb6gtWmNxqaQrSntnYgOvQNDBUIIVFReQA" target="_blank">TypeScript playground</a> !
-
-```typescript
-// Edit the right hand side to match the following expected type conditions.
-type Awaited<T> = unknown;
-
-type P1 = Promise<string>;
-type P2 = Promise<Promise<string>>;
-
-// expected
-type S1 = Awaited<P1>; // should be string;
-type S2 = Awaited<P2>; // shuuld be string too;
-```
-
-<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAgg7gQwJbAgEwDwBUB8UC8UAFFlBAB6oB2aAzlAAoBOA9gLZK0QAySA1hAxIqAMwhMoADRwAoKFAD8UAN5QADAC5YiFOgzSoAXzlQtqzVFKGAlAG01AXQDcMmaEiMAjAUasOXDFpgJmEAcxwXd2gGACYfZnZOQQT-QSCQqnCI1wB6HLJySABjVDQ3cGgAZW9CeGRSjAZPCKg8qFoACxYAVwAbNCgAI2h0sMiKqEq42p0G2Ja2zu6+geH24LCoYBYWFyA" target="_blank">
   Check out the answer.
 </a>
   
