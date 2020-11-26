@@ -11,6 +11,7 @@ TypeScript code exercise.
   - [json-type](#json-type)
   - [to-strict](#to-strict)
   - [combine-latest](#combine-latest)
+  - [convert-object-keys](#convert-object-keys)
   - [curry](#curry)
   - [diff](#diff)
   - [only-required-keys](#only-required-keys)
@@ -139,6 +140,79 @@ combineLatest(s1, s2, s3).subscribe(([v1, v2, v3]) => {
 ```
 
 <a href="https://www.typescriptlang.org/play#code/JYOwLgpgTgZghgYwgAgPICMDO0Bud0A2EAPACoB8yA3gFDLKYCuWCUw6EAFAugFzKcc-UgEpkAXko4A9sAAmI-jPkBuGgF8aNMAE8ADigCqIdNIAeoAOZlK45KWQQzkEHMxosufEWKgY0ZABlSgB+IOR+EAgcaDUaOQgEAjgoFBhGEAQwYGkQZARpAFt0UAgAGThITDBiQ0dnCFd3DGwoPEISOBAdcgBtAF1yTjpkADpxlMtMfkMaRQ9W9p8R2np6XoAFZFBkAGsIHWkYZEN+mZNzK1rNwbV6TXI4gHon5ABRMwMsiDktBKSUigCiBqgwAIz8FpeDrEapsECWR7xRLJVL5XKgzAAJkhnja3hIIEYxWgSP+qKBGLADAAzLjFgTiKZpEQukiaAViqUKlUwJxMGCADQMLHCzA0kSjJgsNgcTicXo4IXIHCilU0-piSTUEYvFVghgAC2kjAIcmQHAYYHhlhGwNBqSYBDAEKtNok+ri9D1qqNJrNFpQRJJUDtVOQjtNYBxyGDHCgHtVXuQPppftN5stzNZIDDIOpkeddIt0hZEC6iZpanUIjUQA" target="_blank">
+  Check out the answer.
+</a>
+  
+### convert-object-keys
+
+Difficulty: :space_invader::space_invader:
+
+Play this with <a href="https://www.typescriptlang.org/play#code/PTAEGEHsFsAcBsCmAXRpkAs0ANwENpF4BLAL0QBMB5AIwCtEBjZbdAT1jUk4Cc9lIPdJFDR+jDOiygAZpHjxIAd2IA7AOahEAD07NKoRpFUViyYsYB0AKBC2wASTHq1Xek2SyeMUD0QBnWGN-LhlQAHVEGlAAQQAFB1BiOCRCVVQKUBo2UHg8DQBXPHU0JQxiCVBYPxlEIQAif1U8AGtEAFpGPBCKetAANzweYjwaJFBmwlAACkRLdUtQACUC7IBKGxBQACECzzZIAtAlfM8BQ2N+urPpP0DgtwZmf2FQSHdn44xIENA2theQzQ9S6hHgnW6lD6-mQww0-k2wHsoAAyiIDkdVIgDOdMMQXsgOFxePxBK8-NUAoh0gTpITOG8wpg0EZVFceBk3h9kAjrPS0PgwWRKLQnsgADwAFQAfKAALygAqqFqqZSqADc1mRAFFdB5KFr+aAAOLUur8ShLAJBVQhSVE+WgADe1lASQoAC5QDC4epNW6ZMQeDCAPqTRBen1qP2u3LdZBhggR72w6P+wx+C0UEP8L2qArQGh1TUAX011lZMN81oeoq9pqxfAyVvutsQ9oZCpdbuIntA9QAjAAGEdD+oAGljgeDCfDXvqAE0fgU2hPY3lQ3P+wBpAp8aDENduxiZjI55BegcANiHV4AzAAOACcQ6fACYP0-J2WtZXPKz2QyL1u3dSNUw0dNpxhAA5JMwN9dMN2QWDCHgtNYxPRAsxiC8JgLIseFLR0AOubdEABAAxbxoBRZo2jfQUiGmO4bRCUU1nLLZJWkOQFGUaNZCVZgLFUC42WuF5-heNQklUWA9i5MVXlBIgIR6FNfRsGQhPMYwxMAsjKOo2jWkQBik3gKUtG0VATBeK0jB4ChxSjDRx1AfI2GlaVpljd46C9SVJzWL1GJIchqG5KVZRAv8-nIl4FVFDxLCk6Z-LWDyXlc9QAG0AF10z8ZA91EqTLD8CgCkYRBpmmPBGEYdyWkyuUYtjY9gn-CzhQoQzHSaUzzLBaYWvTN1itK50OrdUBLHmhqmpmt1cpU8LKEM-KvX83KWnyydZtAH83RLdynRLLKPNUNgOOsEstS2b5TVAdpZQACUgEprG01RhL0rpYDMPB1umNR5NwnLMpAyaeFEsG9ksfwSBq6Yh3cgcNgEABVWBeHwEJpkygBqWTwcR5HaoxywBAAGWUOp8dq277uRb4ShDOQRFe0APpKCjIEgb6dJE706LMuJui6eBQbkvY0I0KHYxhuHZeQRGEDMaZ6hDeoNjEWBpgBoH1o2OhIDULXddLB6wDZxAOYFl7ZTt-nBZ+v7RMG+iwpl8H5fURXOttTxYAGsW3wl-wpd9vZbomlAptgcmKlqtHQCp2n6Z4RnCdAEmk6RlPpgx62gA" target="_blank">TypeScript playground</a> !
+
+```typescript
+// Complete the `CamelizedObject` type operator to match the following expected condition.
+//
+// Imagine object from response of Web API implemented by language which prefer "snake-cased" variable name (e.g. Ruby).
+// But you want to convert the response objects to objects whose keys are "camel-cased" strings.
+//
+// So you need to this type operator to represents the type of the converted objects.
+type CamelizedObject<T> = unknown;
+
+// Expected
+
+type GeneratedResponseType = {
+  id: string;
+  first_name: string;
+  last_name: string;
+  created_at: number;
+};
+
+const responseObj: GeneratedResponseType = {
+  id: "10000",
+  first_name: "Yosuke",
+  last_name: "Kurami",
+  created_at: 1606389092229,
+};
+
+const converted: {
+  id: string;
+  firstName: string;
+  lastName: string;
+  createdAt: number;
+} = convertKeysFromSnake2Camel(responseObj);
+
+// The following function converts keys in input object to camel-cased string.
+function convertKeysFromSnake2Camel<T extends Record<string, any>>(
+  obj: T,
+): CamelizedObject<T> {
+  const keys = Object.keys(obj) as string[];
+  return keys.reduce((acc, k) => {
+    const camelizedKey = snake2Camel(k);
+    return {
+      ...acc,
+      [camelizedKey]: obj[k],
+    };
+  }, {} as any);
+}
+
+// hoGe -> Hoge
+function capitalize(input: string) {
+  return input.slice(0, 1).toUpperCase() + input.slice(1).toLowerCase();
+}
+
+// hoge_foo -> HogeFoo
+function snake2Pascal(input: string) {
+  return input.split("_").map(capitalize).join("");
+}
+
+// hoge_foo -> hogeFoo
+function snake2Camel(input: string) {
+  const p = snake2Pascal(input);
+  return p.slice(0, 1).toLowerCase() + p.slice(1);
+}
+```
+
+<a href="https://www.typescriptlang.org/play#code/C4TwDgpgBAwghgWwgGwJYC8IBMDyAjAKwgGNgAeAFQD4oBeKAawhAHsAzKCqCAD2AgB2WAM5RhwAE6oBAcwBQUKAH4oAbygBtAApRpjZu05Q4ogMoC4TAEzwkyMlqoBdAFydtTqAF8FUNxQBuOTlQSChzSwgrLRNiOHsuXn4hUXEpWRp6RL5BESgAAwASVWk2CAkoAAkvAH1i0vKoACUvfN8VItV4MFRgeIwIMkqqL2KI6xjhOPsmkbbFN27e-sxKKiCQ8GhxqNsUSm4clLFJaRlMqABVATievrRVnejY+LX14IB6D6gAUR5IUjYYKhaAAcUE5Tg-CwTQgwjALAEwggFC2dDUvlQWDcaTOQUUbFQEnENQsSBxp1k+KgyBMwFJiAgFPSMmpxAkECh2BqULcAgArgg8OUgl4NsREeIoBz4ZKIPgCG5wQJIdDYbKkSi0fRVJjsVAAEQARgADGaTQaADS+QnE+lkpmGgCaLGE-KYVt8tJJDrcBoA0vyJIhUJ7FOzOdCecA3EaAGwmuMAZgAHABOE1pqzZtPWsXBCVI4BQQsAN3K0LcusUWOZeJtRPEADlGXWqV66S3yScWWyOVysABBGNQAVCkVyLzossV-3MYQAMQkLAQTz2yAAFDKEZqFQBKDZfTgAC2gbBYyGQLAA7mcoGx+TdgKhESXEeWJMBREwQKI9NIwH5YsWEIEhi2AFgS0ZZAAFo4mRLAezOAA6OQHyfF8BDfAQP2AOdfyXFc12gg4klyURYQlCQsDIXFZEtYwBBAKgqA3XwQMVThrT3RZoIGXBQNINYMXDSVix-UR6AVMDkIkjcOL3YxUkpGQNCcakOWAIMsIk5COSwfliAgDcNzgYhiAYhhFNoGhq0UbCpTiOx+Pw9FhAsax1w3KzqUUTTtJE+zFGQkKzIs3wgo0JyUBc5hXCgDiNAYJxrSC-NFC8BjVCnExGJAA9J0+b5jxYcEoBgmhKhYGQIDQx9SEwqC7hWYyAKAtsZEUuz-IkLC2uAZDhDQIyNxNBijT3ZCIMuMBIAkeBkQ3RSAGpdAEQCBqG1ARomqaWAAGRvcoFuMgqfDkI8Spqmpz0giqqmqiAFxYFg6ow193MiZ4pniDd+o6rrfB6vr1qAwawDQYANwNGoDUmhA4DADdbmWB4IEmggWGkaG4dFIqoCuiAbpe8qaEJ57XvQhqPo83ZoL+0GRzozrAsLKUwDc2nvumBmNoKvyIC03qoDAQbhuMsaoF2iDDuvY6TFOqBVtFradrOuQgA" target="_blank">
   Check out the answer.
 </a>
   
