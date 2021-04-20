@@ -2,10 +2,10 @@
 # yarn lockfile v1
 
 
-"@microsoft/tsdoc@0.13.1":
-  version "0.13.1"
-  resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.13.1.tgz#019daef7e355142369ca867cf99db20595489d4c"
-  integrity sha512-WICydgSCsSG2d2CkpiZImB5tn+vDPpx+YfgJmHSptg4W3Bu6J3TIrpafAG+MWVKyz8SSC28jPSces2YuRWlOJw==
+"@microsoft/tsdoc@0.13.2":
+  version "0.13.2"
+  resolved "https://registry.yarnpkg.com/@microsoft/tsdoc/-/tsdoc-0.13.2.tgz#3b0efb6d3903bd49edb073696f60e90df08efb26"
+  integrity sha512-WrHvO8PDL8wd8T2+zBGKrMwVL5IyzR3ryWUsl0PXgEV0QHup4mTLi0QcATefGI6Gx9Anu7vthPyyyLpY0EpiQg==
 
 "@types/color-name@^1.1.1":
   version "1.1.1"
