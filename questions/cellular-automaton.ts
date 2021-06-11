@@ -86,11 +86,7 @@ type ToTuple<T extends Cell> = {
  * type CellularAutomaton<N extends number> = unknown;
  * ```
  */
-type CellularAutomaton<
-  N extends number,
-  T extends Cell = { val: 1 },
-  U extends any[] = []
-> = {
+type CellularAutomaton<N extends number, T extends Cell = { val: 1 }, U extends any[] = []> = {
   0: ToTuple<T>;
   1: CellularAutomaton<N, HeadCell<T>, Unshift<0, U>>;
 }[U["length"] extends N ? 0 : 1];

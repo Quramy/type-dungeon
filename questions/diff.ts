@@ -14,8 +14,7 @@ import "type-dungeon";
  * type $Diff<A, B> = any;
  * ```
  */
-type $Diff<A, B> = { [P in Extract<keyof A, keyof B>]+?: A[P] } &
-  { [P in Exclude<keyof A, keyof B>]-?: A[P] };
+type $Diff<A, B> = { [P in Extract<keyof A, keyof B>]+?: A[P] } & { [P in Exclude<keyof A, keyof B>]-?: A[P] };
 
 type Props = {
   id: number;

@@ -18,9 +18,7 @@ import "type-dungeon";
  * type CamelizedObject<T> = unknown;
  * ```
  */
-type CamelizedObject<T> = keyof T extends string
-  ? { [P in keyof T as Snake2Camel<P>]: T[P] }
-  : T;
+type CamelizedObject<T> = keyof T extends string ? { [P in keyof T as Snake2Camel<P>]: T[P] } : T;
 
 /**
  * @remove
@@ -57,9 +55,7 @@ const converted: {
 } = convertKeysFromSnake2Camel(responseObj);
 
 // The following function converts keys in input object to camel-cased string.
-function convertKeysFromSnake2Camel<T extends Record<string, any>>(
-  obj: T,
-): CamelizedObject<T> {
+function convertKeysFromSnake2Camel<T extends Record<string, any>>(obj: T): CamelizedObject<T> {
   const keys = Object.keys(obj) as string[];
   return keys.reduce((acc, k) => {
     const camelizedKey = snake2Camel(k);

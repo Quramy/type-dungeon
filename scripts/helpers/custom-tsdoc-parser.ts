@@ -24,12 +24,7 @@ export function createParser() {
     syntaxKind: TSDocTagSyntaxKind.ModifierTag,
     tagName: "@remove",
   });
-  conf.addTagDefinitions([
-    typeQuestionTagDef,
-    difficultyTagDef,
-    replaceToTagDef,
-    removeTagDef,
-  ]);
+  conf.addTagDefinitions([typeQuestionTagDef, difficultyTagDef, replaceToTagDef, removeTagDef]);
   const parser = new TSDocParser(conf);
   return parser;
 }

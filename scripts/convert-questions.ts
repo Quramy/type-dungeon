@@ -2,12 +2,7 @@ import path from "path";
 import ts from "typescript";
 import glob from "glob";
 import { TSDocParser, TextRange } from "@microsoft/tsdoc";
-import {
-  DocNode,
-  DocExcerpt,
-  DocFencedCode,
-  DocParagraph,
-} from "@microsoft/tsdoc";
+import { DocNode, DocExcerpt, DocFencedCode, DocParagraph } from "@microsoft/tsdoc";
 import { createParser } from "./helpers/custom-tsdoc-parser";
 import { Output, Dificulties, difficultyMap } from "./types";
 
@@ -42,11 +37,7 @@ type QuestionDescriptor = {
   replacements: ts.TextChange[];
 };
 
-function parseTsFile(
-  parser: TSDocParser,
-  fileName: string,
-  fileContent: string,
-) {
+function parseTsFile(parser: TSDocParser, fileName: string, fileContent: string) {
   const src = ts.createSourceFile(
     fileName,
     fileContent,
@@ -65,10 +56,7 @@ function parseTsFile(
     replacements: [],
   };
   ts.forEachChild(src, node => {
-    if (
-      ts.isImportDeclaration(node) &&
-      ts.isStringLiteral(node.moduleSpecifier)
-    ) {
+    if (ts.isImportDeclaration(node) && ts.isStringLiteral(node.moduleSpecifier)) {
       if (node.moduleSpecifier.text === "type-dungeon") {
         const r = {
           newText: "",
@@ -81,23 +69,16 @@ function parseTsFile(
         ad.replacements.push(r);
       }
     }
-    const commentRanges = ts.getLeadingCommentRanges(
-      fileContent,
-      node.getFullStart(),
-    );
+    const commentRanges = ts.getLeadingCommentRanges(fileContent, node.getFullStart());
     if (!commentRanges) return;
     commentRanges
       .filter(c => c.kind === ts.SyntaxKind.MultiLineCommentTrivia)
       .forEach(range => {
-        const { docComment } = parser.parseRange(
-          TextRange.fromStringRange(fileContent, range.pos, range.end),
-        );
+        const { docComment } = parser.parseRange(TextRange.fromStringRange(fileContent, range.pos, range.end));
         let toBeRemoved = false;
         let replacementComment = "";
         if (docComment.modifierTagSet.hasTagName("@typeQuestion")) {
-          qd.description = Formatter.renderDocNode(
-            docComment.summarySection,
-          ).trim();
+          qd.description = Formatter.renderDocNode(docComment.summarySection).trim();
           toBeRemoved = true;
           replacementComment = qd.description
             .split("\n")
@@ -132,9 +113,7 @@ function parseTsFile(
           } else if (block.blockTag.tagName === "@difficulty") {
             const firstNode = block.content.getChildNodes()[0];
             if (firstNode instanceof DocParagraph) {
-              const dstr = Formatter.renderDocNode(firstNode)
-                .trim()
-                .toUpperCase();
+              const dstr = Formatter.renderDocNode(firstNode).trim().toUpperCase();
               qd.difficultyStr = dstr;
             }
           }
@@ -160,21 +139,13 @@ function parseTsFile(
   if (qd.description) return [qd, ad];
 }
 
-function applyReplacements({
-  originalContent,
-  replacements,
-}: QuestionDescriptor) {
-  const cloned = replacements
-    .slice()
-    .sort((a, b) => b.span.start - a.span.start);
+function applyReplacements({ originalContent, replacements }: QuestionDescriptor) {
+  const cloned = replacements.slice().sort((a, b) => b.span.start - a.span.start);
   for (const {
     newText,
     span: { start, length },
   } of cloned) {
-    originalContent =
-      originalContent.slice(0, start) +
-      newText +
-      originalContent.slice(start + length);
+    originalContent = originalContent.slice(0, start) + newText + originalContent.slice(start + length);
   }
   return {
     fullText: originalContent.trim(),
@@ -192,25 +163,15 @@ function main() {
   const outputs: Output[] = [];
 
   files.forEach(fileName => {
-    const buf = ts.sys.readFile(
-      ts.sys.resolvePath(__dirname + "/../questions/" + fileName),
-    )!;
+    const buf = ts.sys.readFile(ts.sys.resolvePath(__dirname + "/../questions/" + fileName))!;
     const ret = parseTsFile(parser, fileName, buf);
     if (!ret) return;
     const [qd, ad] = ret;
     const qOut = applyReplacements(qd);
     const aOut = applyReplacements(ad);
-    ts.sys.writeFile(
-      __dirname + "/../dist/questions/" + qd.fileName,
-      qOut.fullText,
-    );
-    ts.sys.writeFile(
-      __dirname + "/../dist/answers/" + ad.fileName,
-      aOut.fullText,
-    );
-    const difficultyStr = (qd.difficultyStr! in difficultyMap
-      ? qd.difficultyStr
-      : "MEDIUM") as Dificulties;
+    ts.sys.writeFile(__dirname + "/../dist/questions/" + qd.fileName, qOut.fullText);
+    ts.sys.writeFile(__dirname + "/../dist/answers/" + ad.fileName, aOut.fullText);
+    const difficultyStr = (qd.difficultyStr! in difficultyMap ? qd.difficultyStr : "MEDIUM") as Dificulties;
     const outJsonRecord: Output = {
       name: path.basename(fileName).replace(/\.tsx?$/, ""),
       difficultyStr,
@@ -220,10 +181,7 @@ function main() {
     };
     outputs.push(outJsonRecord);
   });
-  ts.sys.writeFile(
-    __dirname + "/../dist/metadata.json",
-    JSON.stringify(outputs, null, 2),
-  );
+  ts.sys.writeFile(__dirname + "/../dist/metadata.json", JSON.stringify(outputs, null, 2));
 }
 
 main();

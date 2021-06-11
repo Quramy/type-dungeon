@@ -15,11 +15,7 @@ import "type-dungeon";
  * ```
  *
  */
-type U2I<T> = (T extends any ? (a: T) => any : never) extends (
-  a: infer S,
-) => any
-  ? S
-  : never;
+type U2I<T> = (T extends any ? (a: T) => any : never) extends (a: infer S) => any ? S : never;
 
 type User = {
   id: string;
