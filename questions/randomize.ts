@@ -5,9 +5,7 @@ import "type-dungeon";
  */
 type Union<V, U extends any[]> = {
   0: V;
-  1: ((...v: U) => any) extends (head: infer Head, ...tail: infer Tail) => any
-    ? Union<V | Head, Tail>
-    : never;
+  1: ((...v: U) => any) extends (head: infer Head, ...tail: infer Tail) => any ? Union<V | Head, Tail> : never;
 }[U["length"] extends 0 ? 0 : 1];
 
 /**
@@ -39,7 +37,4 @@ const valueAB = random(a, b);
 const valueABC = random(a, b, c);
 
 const x: { readonly value: 1 } | { readonly value: 2 } = valueAB;
-const y:
-  | { readonly value: 1 }
-  | { readonly value: 2 }
-  | { readonly value: 3 } = valueABC;
+const y: { readonly value: 1 } | { readonly value: 2 } | { readonly value: 3 } = valueABC;

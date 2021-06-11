@@ -23,25 +23,15 @@ TypeScript code exercise.
 };
 
 const createSection = (data: Output) => {
-  const qBuf = fs.readFileSync(
-    path.resolve(__dirname, "..", data.questionFileName),
-    "utf8",
-  );
-  const aBuf = fs.readFileSync(
-    path.resolve(__dirname, "..", data.answerFileName),
-    "utf8",
-  );
+  const qBuf = fs.readFileSync(path.resolve(__dirname, "..", data.questionFileName), "utf8");
+  const aBuf = fs.readFileSync(path.resolve(__dirname, "..", data.answerFileName), "utf8");
   const compressedQuestionCode = lzstring.compressToEncodedURIComponent(qBuf);
   return `
 ### ${data.name}
 
-Difficulty: ${[...new Array(~~(data.difficulty / 5)).keys()]
-    .map(() => ":space_invader:")
-    .join("")}
+Difficulty: ${[...new Array(~~(data.difficulty / 5)).keys()].map(() => ":space_invader:").join("")}
 
-Play this with <a href="${toPlaygroundLink(
-    qBuf,
-  )}" target="_blank">TypeScript playground</a> !
+Play this with <a href="${toPlaygroundLink(qBuf)}" target="_blank">TypeScript playground</a> !
 
 \`\`\`typescript
 ${qBuf}\`\`\`
@@ -75,11 +65,7 @@ function main() {
 
   outputString += createFooter();
 
-  fs.writeFileSync(
-    path.resolve(__dirname, "../dist/README.md"),
-    toc.insert(outputString),
-    "utf8",
-  );
+  fs.writeFileSync(path.resolve(__dirname, "../dist/README.md"), toc.insert(outputString), "utf8");
 }
 
 main();
